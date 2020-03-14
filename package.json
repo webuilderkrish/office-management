@@ -1,0 +1,19 @@
+{
+  "name": "office-management",
+  "version": "1.0.0",
+  "description": "A college project ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webuilderkrish/office-management.git"
+  },
+  "author": "shubham digole",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webuilderkrish/office-management/issues"
+  },
+  "homepage": "https://github.com/webuilderkrish/office-management#readme"
+}
