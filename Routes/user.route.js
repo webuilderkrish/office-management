@@ -9,16 +9,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = require("mongoose");
-exports.default = () => __awaiter(void 0, void 0, void 0, function* () {
+const express_1 = require("express");
+const user_controller_1 = require("../Controllers/user.controller");
+const router = express_1.Router();
+router.post('/', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        mongoose_1.set('useFindAndModify', false);
-        yield mongoose_1.connect('mongodb+srv://shubhamdigole:mansi@schoolmanage-p3ck5.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, dbName: "officeManage" });
-        console.log("Database Connected Successfully");
+        const user_add = yield user_controller_1.default.addUser(req.body);
+        res.json(user_add);
     }
     catch (error) {
-        console.error(error);
-        return false;
+        res.json(error);
     }
-});
-//# sourceMappingURL=db.js.map
+}));
+exports.default = router;

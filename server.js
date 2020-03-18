@@ -9,16 +9,29 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const mongoose_1 = require("mongoose");
-exports.default = () => __awaiter(void 0, void 0, void 0, function* () {
+const express = require("express");
+const body_parser_1 = require("body-parser");
+const path_1 = require("path");
+const compression = require("compression");
+const db_1 = require("./db");
+// Routes
+const index_1 = require("./Routes/index");
+//import user from ""
+const user_route_1 = require("./Routes/user.route");
+const app = express();
+app.use(compression());
+app.use(express.static(path_1.join(__dirname, "public")));
+app.use(body_parser_1.urlencoded({ extended: true }));
+app.use(body_parser_1.json());
+app.use("/api/user", user_route_1.default);
+app.use("/", index_1.default);
+const port = process.env.PORT || 3000;
+app.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        mongoose_1.set('useFindAndModify', false);
-        yield mongoose_1.connect('mongodb+srv://shubhamdigole:mansi@schoolmanage-p3ck5.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, dbName: "officeManage" });
-        console.log("Database Connected Successfully");
+        yield db_1.default();
+        console.log("server started successfully. on port " + port);
     }
     catch (error) {
         console.error(error);
-        return false;
     }
-});
-//# sourceMappingURL=db.js.map
+}));

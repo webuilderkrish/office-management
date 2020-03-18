@@ -21,4 +21,3 @@ exports.default = () => __awaiter(void 0, void 0, void 0, function* () {
         return false;
     }
 });
-//# sourceMappingURL=db.js.map

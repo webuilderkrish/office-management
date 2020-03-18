@@ -19,9 +19,7 @@ app.use(urlencoded({ extended: true }));
 
 app.use(json());
 
-//app.use("/api/users", users);
 
-// index route always loads last
 app.use("/api/user", user);
 app.use("/", index);
 

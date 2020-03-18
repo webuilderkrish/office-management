@@ -16,14 +16,14 @@ const compression = require("compression");
 const db_1 = require("./db");
 // Routes
 const index_1 = require("./Routes/index");
-//import users from "./Routes/login.route";
+//import user from ""
+const user_route_1 = require("./Routes/user.route");
 const app = express();
 app.use(compression());
 app.use(express.static(path_1.join(__dirname, "public")));
 app.use(body_parser_1.urlencoded({ extended: true }));
 app.use(body_parser_1.json());
-//app.use("/api/users", users);
-// index route always loads last
+app.use("/api/user", user_route_1.default);
 app.use("/", index_1.default);
 const port = process.env.PORT || 3000;
 app.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
