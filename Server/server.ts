@@ -7,8 +7,8 @@ import connect_db from "./db";
 
 // Routes
 import index from "./Routes/index";
-
-//import users from "./Routes/login.route";
+//import user from ""
+import user from "./Routes/user.route";
 
 
 const app: express.Express = express();
@@ -22,7 +22,7 @@ app.use(json());
 //app.use("/api/users", users);
 
 // index route always loads last
-
+app.use("/api/user", user);
 app.use("/", index);
 
 const port: string | number = process.env.PORT || 3000;
