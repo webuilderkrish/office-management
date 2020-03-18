@@ -10,9 +10,9 @@ export default class userController{
             })
             .then(resp => {
                 if (!resp) {
-                    bcrypt.hash(user.Password, 10, (err, hash)=>{
+                    bcrypt.hash(user.Password, 10, async (err, hash)=>{
                         user.Password = hash;
-                        userModel.create(user)
+                       await userModel.create(user)
                         .then(user => {
                             return user;
                         })

@@ -7,6 +7,7 @@ const userSchema = new Schema({
     DateCreated:Date,
     DateUpdated:Date,
     Email:String,
+    Password:String,
     isAdmin:Boolean
 })
 
