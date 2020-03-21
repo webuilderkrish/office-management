@@ -12,9 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const login_controller_1 = require("../Controllers/login.controller");
 const router = express_1.Router();
-router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const resposne = yield login_controller_1.default.login(req.body);
-    res.json(resposne);
+router.post('/login', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const user = yield login_controller_1.default.login(req.body);
+        console.log('clicked');
+        res.json(user);
+    }
+    catch (error) {
+        res.json(error);
+    }
 }));
 exports.default = router;
 //# sourceMappingURL=login.route.js.map

@@ -18,34 +18,37 @@ class loginController {
     static login(user) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield user_model_1.default.findOne({
-                    Email: user.Email
-                })
-                    .then((res) => __awaiter(this, void 0, void 0, function* () {
-                    if (user) {
-                        if (yield bcrypt.compareSync(user.Password, res.Password)) {
-                            const payload = {
-                                Firstname: res.Firstname,
-                                Lastname: res.Lastname,
-                                email: res.Email,
-                            };
-                            token = yield jwt.sign(payload, process.env.SECRET_KEY, {
-                                expiresIn: 1400
-                            });
-                            let decoded = jwt.verify(token, process.env.SECRET_KEY);
-                            return (token);
+                return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+                    yield user_model_1.default.findOne({
+                        Email: user.Email
+                    })
+                        .then((res) => __awaiter(this, void 0, void 0, function* () {
+                        if (res) {
+                            if (yield bcrypt.compareSync(user.Password, res.Password)) {
+                                console.log(res);
+                                const payload = {
+                                    Firstname: res.Firstname,
+                                    Lastname: res.Lastname,
+                                    email: res.Email,
+                                };
+                                token = yield jwt.sign(payload, process.env.SECRET_KEY, {
+                                    expiresIn: 1400
+                                });
+                                let decoded = jwt.verify(token, process.env.SECRET_KEY);
+                                resolve(token);
+                            }
+                            else {
+                                resolve("Password is Wrong");
+                            }
                         }
                         else {
-                            return ({ error: 'Password is Wrong' });
+                            resolve('Please Check Username');
                         }
-                    }
-                    else {
-                        return ({ error: 'Please Check Username' });
-                    }
-                }))
-                    .catch(err => {
-                    return ('error : ' + err);
-                });
+                    }))
+                        .catch(err => {
+                        resolve('error : ' + err);
+                    });
+                }));
             }
             catch (err) {
                 return err;

@@ -8,15 +8,17 @@ process.env.SECRET_KEY = 'secret';
 export default class loginController{
     
 
-    static async login(user){
+    static async login(user:any): Promise<any>{
         try{
-           
+            return new Promise(async (resolve, reject) => { 
               await userModel.findOne({
                   Email: user.Email
                 })
                   .then(async (res:any) => {
-                    if (user) {
+                    if (res) {
                       if (await bcrypt.compareSync(user.Password, res.Password)) {
+                        console.log(res);
+                        
                         const payload = {
                          
                           Firstname: res.Firstname,
@@ -30,25 +32,30 @@ export default class loginController{
                         })
                         let decoded = jwt.verify(token, process.env.SECRET_KEY)
               
-                        return(token)
-                      } else {
-                       return({ error:'Password is Wrong'})
+                        resolve (token);
+                      }
+                       else {
+                        resolve ("Password is Wrong");
                       }
               
-                    } else {
-                     return({ error:'Please Check Username'})
+                    } 
+                    
+                    else {
+                        resolve ('Please Check Username');
                     }
               
                   })
                   .catch(err => {
               
-                   return('error : ' + err)
+                   resolve ('error : ' + err)
                   })
-              }  
+              } ); 
+            }
         
         catch(err)
         {
             return err
         }
     }
+
 }

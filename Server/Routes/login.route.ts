@@ -3,9 +3,20 @@ import loginController from "../Controllers/login.controller";
 
 const router : Router = Router();
 
-router.post('/login',async (req, res)=>{
-    const resposne = await loginController.login(req.body);
-    res.json(resposne);
+router.post('/login',async (req, res, next)=>{
+    
+    try {
+
+    const user = await loginController.login(req.body);
+    console.log('clicked');
+    
+    res.json(user)
+
+   } catch (error) {
+    res.json(error)
+   }
+  
+   
 })
 
 export default router;
