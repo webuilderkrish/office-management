@@ -16,25 +16,41 @@
             </div>
         </div>
         <div class="container loginsection col-md-4 border p-10">
-           <h3 class=" pt-2 ">SIGN IN TO MISDESK CRM</h3>
-           <br>
-           <br>
-          
-          <br><br><br>
-           <form (submit)="login()">
-            <mat-form-field class="col-md-12">
-              <input type="email" matInput placeholder="Email" name="email">
-            </mat-form-field>
+            <h3 class=" pt-2 ">SIGN IN TO MISDESK CRM</h3>
+           
             <br>
             <br>
-            <mat-form-field class="col-md-12">
-              <input matInput placeholder="Password" type="password" class="col-md-12" name="password">
+            <form (submit)="login()">
+                <mat-form-field class="col-md-12">
+                    <i class="material-icons" matPrefix>
+                        account_circle
+                    </i>
+                    <input type="email" matInput placeholder="Email" name="email">
+                </mat-form-field>
+                <br>
                 
-            </mat-form-field>
-            <a href="" class="pl-2">Forget Password</a>
+                <mat-form-field class="col-md-12">
+                    
+                    <input matInput placeholder="Password" type="password" class="col-md-12" name="password">
+                    <span class="material-icons" matPrefix>
+                        lock_open
+                        </span>
+                </mat-form-field>
+                <a href="" class="pl-2">Forget Password</a>
+                <br><br>
+                <button class="btn btn-primary" type="submit">Login</button>
+            </form>
+            <br>
             <br><br>
-            <button class="btn btn-primary" type="submit">Login</button>
-          </form>
+            <mat-divider></mat-divider>
+           
+            <br>
+            <h4>MOBILE APPS</h4>
+            <div class="d-flex justify-content-center flex-row ">
+               <a href=""> <img class="apps" src="../../assets/login/gplay.png" alt=""> </a>
+               <a href=""> <img class="apps" src="../../assets/login/appstore.png" alt=""> </a>
+                <br>
+            </div>
         </div>
     </div>
 </div>

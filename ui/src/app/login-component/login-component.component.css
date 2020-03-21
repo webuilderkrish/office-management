@@ -31,7 +31,7 @@ li{
     width: 3px;
     height: 3px;
     border-radius: 50%;
-    background:maroon;
+    background-image: linear-gradient(to top, #c71d6f 0%, #d09693 100%);
 }
 li:nth-child(3) {
     background: rgb(18, 206, 231);
@@ -45,6 +45,8 @@ li:nth-child(3) {
   }
   ::ng-deep  .mat-form-field-label {
     /*change color of label*/
+    padding-bottom: 20px !important;
+    /* font-size: 20px !important; */
     color:white !important;
    }
   .loginsection{
@@ -64,5 +66,24 @@ button{
     width: 150px;
 }
 a{
+    color: white;
     margin-left: 10px;
+}
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: white !important;
+  } 
+::ng-deep .mat-form-field-prefix{
+    padding-left: 3px;
+    position: absolute;
+    padding-right: 3px;
+    padding-bottom: 0px;
+}
+mat-divider{
+    border: 1px solid white;
+}
+.apps{
+    margin: 10px;
+    width: 170px;
+    height: 60px;
 }
