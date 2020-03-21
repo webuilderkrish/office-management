@@ -31,12 +31,6 @@ class loginController {
                                     Lastname: res.Lastname,
                                     email: res.Email,
                                 };
-                                yield fs.readFile('Server/Templates/ForgotPassword.html', function (err, data) {
-                                    if (err) {
-                                        console.log(err);
-                                    }
-                                    var result = data.replace(/#test#/g, 'replacement');
-                                });
                                 token = yield jwt.sign(payload, process.env.SECRET_KEY, {
                                     expiresIn: 1400
                                 });

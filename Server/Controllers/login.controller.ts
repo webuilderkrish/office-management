@@ -25,14 +25,7 @@ export default class loginController{
                           email: res.Email,
                          
                         }
-                       await fs.readFile('Server/Templates/ForgotPassword.html', function(err, data) {
-                            if (err) {
-                                console.log(err);
-                                
-                            }
-                            var result = data.replace(/#test#/g, 'replacement');
-                             
-                          });
+                      
                         token = await jwt.sign(payload, process.env.SECRET_KEY, {
                           expiresIn: 1400
                         })
