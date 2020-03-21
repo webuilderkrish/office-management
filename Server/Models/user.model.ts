@@ -8,7 +8,8 @@ const userSchema = new Schema({
     DateUpdated:Date,
     Email:String,
     Password:String,
-    isAdmin:Boolean
+    isAdmin:Boolean,
+    Guid:String
 })
 
 export default model('userModel', userSchema, 'users');  

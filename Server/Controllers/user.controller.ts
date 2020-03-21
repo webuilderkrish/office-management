@@ -1,20 +1,31 @@
 import userModel from '../Models/user.model';
-import bcrypt from 'bcryptjs'
+const bcrypt = require('bcryptjs'); 
 
 export default class userController{
 
     static async addUser( user:any){
         try {
-            const inserted_user = await userModel.findOne({
+             await userModel.findOne({
                 Email:user.Email
             })
-            .then(resp => {
+            .then(async resp => {
                 if (!resp) {
-                    bcrypt.hash(user.Password, 10, async (err, hash)=>{
+                   await bcrypt.hash(user.Password, 10, async (err, hash)=>{
                         user.Password = hash;
-                       await userModel.create(user)
+                        function guid() {
+                            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                                var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+                                return v.toString(16);
+                            });
+                        }
+                        user.Guid = guid();
+                        if(err) console.log(err);
+                        
+                        userModel.create(user)
                         .then(user => {
                             return user;
+                        }).catch(err => {
+                            return err;
                         })
                     })
                 }

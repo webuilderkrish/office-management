@@ -21,6 +21,7 @@ app.use(json());
 
 
 app.use("/api/user", user);
+app.use("/api/cred")
 app.use("/", index);
 
 const port: string | number = process.env.PORT || 3000;

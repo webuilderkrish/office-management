@@ -24,6 +24,7 @@ app.use(express.static(path_1.join(__dirname, "public")));
 app.use(body_parser_1.urlencoded({ extended: true }));
 app.use(body_parser_1.json());
 app.use("/api/user", user_route_1.default);
+app.use("/api/cred");
 app.use("/", index_1.default);
 const port = process.env.PORT || 3000;
 app.listen(port, () => __awaiter(void 0, void 0, void 0, function* () {
