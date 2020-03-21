@@ -1,20 +1,40 @@
 <div class="background">
     <div class="jumbotron d-flex flex-row">
-        <div class="container main p-0 col-md-8 border">
-            <div class="d-flex justify-content-center">
+        <div class="container main main p-0 col-md-8 border">
+            <div class="d-flex justify-content-center pt-3">
                 <img class="logo" src="../../assets/logo.png" alt="">
                 <br>
             </div>
             <br>
 
             <h5 class="text-center">Your data is safe and secure with us, we have automated backups to avoid DM</h5>
+            <ul class="d-flex pt-5 flex-row justify-content-center">
+                <li class="p-2" *ngFor="let in of [0,1,2,3,4] ;let i = index"></li>
+            </ul>
             <div class="col-md-12 border-top pt-5 bottom mt-10">
                 <img class=" col-md-12" src="../../assets/login/base_icons.PNG" alt="">
             </div>
         </div>
-        <div class="container col-md-4 border">
-            <img class="logo" src="../../assets/logo.png" alt="">
-
+        <div class="container loginsection col-md-4 border p-10">
+           <h3 class=" pt-2 ">SIGN IN TO MISDESK CRM</h3>
+           <br>
+           <br>
+          
+          <br><br><br>
+           <form (submit)="login()">
+            <mat-form-field class="col-md-12">
+              <input type="email" matInput placeholder="Email" name="email">
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-form-field class="col-md-12">
+              <input matInput placeholder="Password" type="password" class="col-md-12" name="password">
+                
+            </mat-form-field>
+            <a href="" class="pl-2">Forget Password</a>
+            <br><br>
+            <button class="btn btn-primary" type="submit">Login</button>
+          </form>
         </div>
     </div>
 </div>
