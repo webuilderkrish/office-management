@@ -9,6 +9,7 @@ import connect_db from "./db";
 import index from "./Routes/index";
 //import user from ""
 import user from "./Routes/user.route";
+import cred from "./Routes/login.route"
 
 
 const app: express.Express = express();
@@ -21,7 +22,7 @@ app.use(json());
 
 
 app.use("/api/user", user);
-app.use("/api/cred")
+app.use("/api/cred", cred);
 app.use("/", index);
 
 const port: string | number = process.env.PORT || 3000;

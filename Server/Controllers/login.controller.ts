@@ -2,6 +2,8 @@ import userModel from '../Models/user.model';
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 let token = null;
+process.env.SECRET_KEY = 'secret';
+
 
 export default class loginController{
     
@@ -9,12 +11,12 @@ export default class loginController{
     static async login(user){
         try{
            
-                userModel.findOne({
+              await userModel.findOne({
                   Email: user.Email
                 })
-                  .then((res:any) => {
+                  .then(async (res:any) => {
                     if (user) {
-                      if (bcrypt.compareSync(user.Password, res.Password)) {
+                      if (await bcrypt.compareSync(user.Password, res.Password)) {
                         const payload = {
                          
                           Firstname: res.Firstname,
@@ -23,7 +25,7 @@ export default class loginController{
                          
                         }
               
-                        token = jwt.sign(payload, process.env.SECRET_KEY, {
+                        token = await jwt.sign(payload, process.env.SECRET_KEY, {
                           expiresIn: 1400
                         })
                         let decoded = jwt.verify(token, process.env.SECRET_KEY)

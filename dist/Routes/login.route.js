@@ -16,4 +16,5 @@ router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* 
     const resposne = yield login_controller_1.default.login(req.body);
     res.json(resposne);
 }));
+exports.default = router;
 //# sourceMappingURL=login.route.js.map

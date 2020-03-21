@@ -7,3 +7,5 @@ router.post('/login',async (req, res)=>{
     const resposne = await loginController.login(req.body);
     res.json(resposne);
 })
+
+export default router;
