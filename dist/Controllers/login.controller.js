@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const user_model_1 = require("../Models/user.model");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+var fs = require('fs');
 let token = null;
 process.env.SECRET_KEY = 'secret';
 class loginController {
@@ -30,6 +31,12 @@ class loginController {
                                     Lastname: res.Lastname,
                                     email: res.Email,
                                 };
+                                yield fs.readFile('Server/Templates/ForgotPassword.html', function (err, data) {
+                                    if (err) {
+                                        console.log(err);
+                                    }
+                                    var result = data.replace(/#test#/g, 'replacement');
+                                });
                                 token = yield jwt.sign(payload, process.env.SECRET_KEY, {
                                     expiresIn: 1400
                                 });

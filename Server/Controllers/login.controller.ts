@@ -1,6 +1,7 @@
 import userModel from '../Models/user.model';
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+var fs = require('fs');
 let token = null;
 process.env.SECRET_KEY = 'secret';
 
@@ -18,13 +19,20 @@ export default class loginController{
                     if (res) {
                       if (await bcrypt.compareSync(user.Password, res.Password)) {
                         const payload = {
-                         
+                           
                           Firstname: res.Firstname,
                           Lastname: res.Lastname,
                           email: res.Email,
                          
                         }
-              
+                       await fs.readFile('Server/Templates/ForgotPassword.html', function(err, data) {
+                            if (err) {
+                                console.log(err);
+                                
+                            }
+                            var result = data.replace(/#test#/g, 'replacement');
+                             
+                          });
                         token = await jwt.sign(payload, process.env.SECRET_KEY, {
                           expiresIn: 1400
                         })
