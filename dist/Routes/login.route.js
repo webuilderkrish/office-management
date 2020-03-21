@@ -15,7 +15,6 @@ const router = express_1.Router();
 router.post('/login', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield login_controller_1.default.login(req.body);
-        console.log('clicked');
         res.json(user);
     }
     catch (error) {

@@ -25,7 +25,6 @@ class loginController {
                         .then((res) => __awaiter(this, void 0, void 0, function* () {
                         if (res) {
                             if (yield bcrypt.compareSync(user.Password, res.Password)) {
-                                console.log(res);
                                 const payload = {
                                     Firstname: res.Firstname,
                                     Lastname: res.Lastname,

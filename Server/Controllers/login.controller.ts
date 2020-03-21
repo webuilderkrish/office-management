@@ -17,8 +17,6 @@ export default class loginController{
                   .then(async (res:any) => {
                     if (res) {
                       if (await bcrypt.compareSync(user.Password, res.Password)) {
-                        console.log(res);
-                        
                         const payload = {
                          
                           Firstname: res.Firstname,
