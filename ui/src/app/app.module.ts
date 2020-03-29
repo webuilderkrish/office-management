@@ -11,13 +11,16 @@ import { UserComponent } from './user-component/user-component.component';
 import { HomeComponent } from './home-component/home-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UserComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     MatDividerModule,

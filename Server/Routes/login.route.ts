@@ -14,7 +14,6 @@ router.post('/login', async (req, res, next) => {
         res.json(error)
     }
 
-
 })
 
 export default router;
