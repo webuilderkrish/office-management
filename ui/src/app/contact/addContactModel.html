@@ -1,0 +1,17 @@
+<div>
+    <h1 mat-dialog-title>Add Contact</h1>
+    <div mat-dialog-content class="form-group" style="height: 400px;">
+
+
+        <input [(ngModel)]="payload.name" class="form-control form-control-sm" placeholder="Contact Name">
+        <br>
+        <input [(ngModel)]="payload.comapny" class="form-control form-control-sm" placeholder="Comapny Name">
+        <br>
+        <input [(ngModel)]="payload.creator" class="form-control form-control-sm" placeholder="Creator">
+        <br>
+
+        <div mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">Close</button>
+            <button mat-button (click)="saveRecord()" cdkFocusInitial>Save Company</button>
+        </div>
+    </div>

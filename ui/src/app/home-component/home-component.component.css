@@ -1,9 +1,10 @@
+
 mat-toolbar{
     height: 50px;
     color: rgb(200, 208, 211);
 }
 mat-drawer-container{
-    height: 100%;
+   
 }
 .user{
     width: 100%;

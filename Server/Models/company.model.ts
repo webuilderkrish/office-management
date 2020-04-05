@@ -6,8 +6,14 @@ const companySchema = new Schema({
     city : String,
     state : String,
     creator : String,
-    createdOn : Date,
-    updatedOn : Date
+    createdOn :{
+        type: Date,
+        default: Date.now
+    },
+    updatedOn : {
+        type: Date,
+        default: Date.now
+    }
 })
 
 export default model('companyModel', companySchema, 'companies');  

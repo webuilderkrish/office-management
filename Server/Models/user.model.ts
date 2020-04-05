@@ -4,8 +4,14 @@ const userSchema = new Schema({
     Usename: String,
     FirstName:String,
     LastName:String,
-    DateCreated:Date,
-    DateUpdated:Date,
+    DateCreated: {
+        type: Date,
+        default: Date.now
+    },
+    DateUpdated:{
+        type: Date,
+        default: Date.now
+    },
     Email:String,
     Password:String,
     isAdmin:Boolean,

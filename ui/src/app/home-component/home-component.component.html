@@ -1,4 +1,6 @@
-<div><mat-toolbar>
+
+<div class="maindiv">
+<mat-toolbar>
     <span>Add Logo</span>
     <div class="user d-flex flex-row-reverse">
         <span class="bell border material-icons p-2">
@@ -8,6 +10,7 @@
     </div>
   </mat-toolbar>
 <mat-drawer-container class="example-container">
+   
     <mat-drawer mode="side" opened>
         <a class="links" [routerLink]="['/company']" routerLinkActive="router-link-active" >
             <span class=" material-icons">
@@ -15,13 +18,13 @@
             </span>
             <p>Company</p>
         </a>
-        <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
+        <a class="links" [routerLink]="['/contact']" routerLinkActive="router-link-active" >
             <span class="material-icons">
                 account_box
             </span>
             <p>Contact</p>
         </a>
-        <a class="links" [routerLink]="['/contact']" routerLinkActive="router-link-active" >
+        <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
             <span class="material-icons">
                 view_headline
             </span>
@@ -32,3 +35,4 @@
         <router-outlet></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>
+</div>

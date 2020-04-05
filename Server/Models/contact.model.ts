@@ -2,10 +2,16 @@ import { Schema, model } from "mongoose";
 
 const contactSchema = new Schema({
     name : String,
-    comapny : String,
+    company : String,
     creator : String,
-    createdOn : Date,
-    updatedOn : Date
+    createdOn :{
+        type: Date,
+        default: Date.now
+    },
+    updatedOn : {
+        type: Date,
+        default: Date.now
+    }
 })
 
 export default model('contactModel', contactSchema, 'contacts');  

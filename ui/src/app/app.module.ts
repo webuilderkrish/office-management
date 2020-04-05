@@ -11,7 +11,7 @@ import { UserComponent } from './user-component/user-component.component';
 import { HomeComponent } from './home-component/home-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { ContactComponent } from './contact/contact.component';
+import { ContactComponent, addContactModel } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyComponent, addCompanyModel } from './company/company.component';
 import { TaskComponent } from './task/task.component';
@@ -26,7 +26,8 @@ import { TaskComponent } from './task/task.component';
     ContactComponent,
     CompanyComponent,
     TaskComponent,
-    addCompanyModel
+    addCompanyModel,
+    addContactModel
   ],
   imports: [
     MatSnackBarModule,
@@ -46,6 +47,6 @@ import { TaskComponent } from './task/task.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [addCompanyModel]
+  entryComponents: [addCompanyModel, addContactModel]
 })
 export class AppModule { }

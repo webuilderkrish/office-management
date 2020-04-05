@@ -1,0 +1,23 @@
+.cont{
+    padding: 10px;   
+    background: white;
+    height: 50px;   
+   }
+   .jumbotron{
+        height: 87vh;
+       color: rgb(200, 208, 211);
+   }
+   table{
+       font-family: Arial, Helvetica, sans-serif;
+       font-weight: lighter;
+       color: rgb(96, 98, 99);
+   }
+   .heading{
+       line-height: 30px;
+       font-size: 20px;
+   }
+   .add{
+       cursor: pointer;
+       color: tomato;
+       margin-top: 3px;
+   }
