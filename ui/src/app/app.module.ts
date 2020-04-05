@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CompanyComponent } from './company/company.component';
+import { CompanyComponent, addCompanyModel } from './company/company.component';
 import { TaskComponent } from './task/task.component';
 
 
@@ -25,7 +25,8 @@ import { TaskComponent } from './task/task.component';
     HomeComponent,
     ContactComponent,
     CompanyComponent,
-    TaskComponent
+    TaskComponent,
+    addCompanyModel
   ],
   imports: [
     MatDividerModule,
@@ -43,6 +44,7 @@ import { TaskComponent } from './task/task.component';
    
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [addCompanyModel]
 })
 export class AppModule { }

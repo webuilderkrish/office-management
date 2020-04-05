@@ -1,0 +1,17 @@
+.container{
+ padding: 10px;   
+ background: white;
+ height: 50px;   
+}
+.jumbotron{
+    color: rgb(200, 208, 211);
+}
+.heading{
+    line-height: 30px;
+    font-size: 20px;
+}
+.add{
+    cursor: pointer;
+    color: tomato;
+    margin-top: 3px;
+}
