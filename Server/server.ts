@@ -7,9 +7,11 @@ import connect_db from "./db";
 
 // Routes
 import index from "./Routes/index";
-import company from "./Routes/company.route"
+import task from "./Routes/task.route";
+import contact from "./Routes/contact.route";
+import company from "./Routes/company.route";
 import user from "./Routes/user.route";
-import cred from "./Routes/login.route"
+import cred from "./Routes/login.route";
 
 
 const app: express.Express = express();
@@ -20,6 +22,8 @@ app.use(urlencoded({ extended: true }));
 
 app.use(json());
 
+app.use("/api/task", task);
+app.use("/api/contact", contact);
 app.use("/api/company", company);
 app.use("/api/user", user);
 app.use("/api/cred", cred);

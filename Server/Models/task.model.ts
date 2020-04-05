@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const taskSchema = new Schema({
-    Name : String,
+    name : String,
     comapny : String,
     status : Boolean,
     createdOn : Date,

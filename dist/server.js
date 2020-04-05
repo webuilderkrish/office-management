@@ -16,6 +16,8 @@ const compression = require("compression");
 const db_1 = require("./db");
 // Routes
 const index_1 = require("./Routes/index");
+const task_route_1 = require("./Routes/task.route");
+const contact_route_1 = require("./Routes/contact.route");
 const company_route_1 = require("./Routes/company.route");
 const user_route_1 = require("./Routes/user.route");
 const login_route_1 = require("./Routes/login.route");
@@ -24,6 +26,8 @@ app.use(compression());
 app.use(express.static(path_1.join(__dirname, "public")));
 app.use(body_parser_1.urlencoded({ extended: true }));
 app.use(body_parser_1.json());
+app.use("/api/task", task_route_1.default);
+app.use("/api/contact", contact_route_1.default);
 app.use("/api/company", company_route_1.default);
 app.use("/api/user", user_route_1.default);
 app.use("/api/cred", login_route_1.default);

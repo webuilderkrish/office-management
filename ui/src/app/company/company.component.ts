@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { CrudService } from '../crud.service';
 
 
 @Component({
@@ -9,9 +10,16 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class CompanyComponent implements OnInit {
 
-  constructor( public dialog:MatDialog) { }
+  public data:any[] = [];
+  constructor( public dialog:MatDialog, private crudService : CrudService) { }
 
   ngOnInit() {
+    this.fetch();
+  }
+  fetch(){
+    this.crudService.getALlRecords('company').subscribe((data:any) => {
+      this.data = data;
+    })
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(addCompanyModel, {

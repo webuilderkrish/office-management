@@ -1,8 +1,8 @@
 import { Schema, model } from "mongoose";
 
 const contactSchema = new Schema({
-    Name : String,
-    Comapny : String,
+    name : String,
+    comapny : String,
     creator : String,
     createdOn : Date,
     updatedOn : Date
