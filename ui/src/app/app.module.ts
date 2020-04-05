@@ -12,6 +12,9 @@ import { HomeComponent } from './home-component/home-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CompanyComponent } from './company/company.component';
+import { TaskComponent } from './task/task.component';
 
 
 @NgModule({
@@ -20,7 +23,9 @@ import { ContactComponent } from './contact/contact.component';
     LoginComponent,
     UserComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    CompanyComponent,
+    TaskComponent
   ],
   imports: [
     MatDividerModule,
@@ -32,6 +37,7 @@ import { ContactComponent } from './contact/contact.component';
     MatInputModule,
     MatToolbarModule,
     MatSidenavModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes)
    

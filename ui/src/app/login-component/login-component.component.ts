@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   login(){
+    console.log(this.cred);
+    
     this._AuthService.login(this.cred)
       .subscribe(arg => {
         

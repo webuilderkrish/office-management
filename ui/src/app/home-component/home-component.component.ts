@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  
+  
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.router.navigateByUrl('login')
+    this.router.navigateByUrl('/login')
   }
 
 }

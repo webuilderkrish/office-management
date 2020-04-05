@@ -1,0 +1,34 @@
+mat-toolbar{
+    height: 50px;
+    color: rgb(200, 208, 211);
+}
+.user{
+    width: 100%;
+}
+.info{
+    margin-right: 10px;
+    line-height: 40px;
+}
+.bell{
+    font-size: 20px;
+}
+mat-drawer{
+    text-align: center;
+    width: 70px;
+    background-color: rgb(55, 56, 55);
+    padding-top: 10px;
+}
+.links{
+    text-decoration: none;
+    margin-top: 20px;
+    padding-top: 20px !important;
+    color: rgb(200, 208, 211);
+}
+span{
+    font-size: 30px; 
+  
+}
+p{
+    margin-top: -10px;
+    font-size: 15px;
+}
