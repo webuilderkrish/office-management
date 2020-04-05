@@ -7,7 +7,7 @@ import connect_db from "./db";
 
 // Routes
 import index from "./Routes/index";
-//import user from ""
+import company from "./Routes/company.route"
 import user from "./Routes/user.route";
 import cred from "./Routes/login.route"
 
@@ -20,7 +20,7 @@ app.use(urlencoded({ extended: true }));
 
 app.use(json());
 
-
+app.use("/api/company", company);
 app.use("/api/user", user);
 app.use("/api/cred", cred);
 app.use("/", index);
