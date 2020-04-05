@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
  
 
 import { FormsModule } from '@angular/forms';
-import { MatCardModule, MatButtonModule, MatDialogModule, MatDialogActions, MatFormFieldModule, MatDividerModule, MatInputModule, MatToolbarModule, MatSidenavModule} from '@angular/material';
+import { MatCardModule, MatButtonModule, MatDialogModule, MatDialogActions, MatFormFieldModule, MatDividerModule, MatInputModule, MatToolbarModule, MatSidenavModule, MatSnackBarModule} from '@angular/material';
 import { routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login-component/login-component.component';
@@ -29,6 +29,7 @@ import { TaskComponent } from './task/task.component';
     addCompanyModel
   ],
   imports: [
+    MatSnackBarModule,
     MatDividerModule,
     FormsModule,
     MatFormFieldModule,

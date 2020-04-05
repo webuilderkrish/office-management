@@ -1,12 +1,21 @@
-<h1 mat-dialog-title>Add Company</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Close</button>
-  <button mat-button (click)="saveRecord()" cdkFocusInitial>Ok</button>
-</div>
+<div>
+    <h1 mat-dialog-title>Add Company</h1>
+    <div mat-dialog-content class="form-group" style="height: 400px;">
+
+
+        <input [(ngModel)]="payload.companyName" class="form-control form-control-sm" placeholder="Company Name">
+        <br>
+        <input [(ngModel)]="payload.groupComapny" class="form-control form-control-sm" placeholder="Group Comapny">
+        <br>
+        <input [(ngModel)]="payload.city" class="form-control form-control-sm" placeholder="City">
+        <br>
+        <input [(ngModel)]="payload.state" class="form-control form-control-sm" placeholder="State">
+        <br>
+        <input [(ngModel)]="payload.creator" class="form-control form-control-sm" placeholder="Creator">
+        <br>
+
+        <div mat-dialog-actions>
+            <button mat-button (click)="onNoClick()">Close</button>
+            <button mat-button (click)="saveRecord()" cdkFocusInitial>Save Company</button>
+        </div>
+    </div>

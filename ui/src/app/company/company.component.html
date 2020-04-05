@@ -1,10 +1,43 @@
 <div class="jumbotron">
-    <div class="container border">
+    <div class="cont border">
         <p class="heading">Show Company Details
             <span class="material-icons add float-right" (click) = "openDialog()">
                 add_circle
             </span>
         </p>
     </div>
-
+    <br><br>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Company Name</th>
+            <th scope="col">Group Company</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Creator</th>
+            <th scope="col">Last Updated</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="data.length > 0">
+          <tr *ngFor="let company of data">
+            <th > {{ company.companyName }}</th>
+            <th > {{ company.gropuCompany }}</th>
+            <th > {{ company.city }}</th>
+            <th > {{ company.state }}</th>
+            <th > {{ company.creator }}</th>
+            <th > {{ company.updatedOn | date }}</th>
+            <th > 
+                <span class="material-icons add" (click) = "openDialog(company._id)">edit</span>
+                <span class="material-icons add" (click) = "deleteCompany(company._id)">delete</span>
+            </th>
+          </tr>
+        </tbody>
+        <tbody *ngIf="data.length == 0">
+            <tr>
+                <td rowspan="7">No Data Found</td> 
+            </tr>
+        </tbody>
+      </table>
+      
 </div>
