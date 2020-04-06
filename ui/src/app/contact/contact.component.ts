@@ -21,7 +21,9 @@ export class ContactComponent implements OnInit {
   fetch(){
     this.crudService.getALlRecords(this.url).subscribe((data:any) => {
       if (data == "No record found") {
-        return   
+        this.data = []; 
+        return;
+          
       }
       this.data =  data;
     })
@@ -39,7 +41,7 @@ export class ContactComponent implements OnInit {
   openDialog(id): void {
     const dialogRef = this.dialog.open(addContactModel, {
       width: '600px',
-      height: '500px',
+      height: '400px',
       data : {key : id}
     });
 

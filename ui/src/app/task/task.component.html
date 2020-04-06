@@ -1,1 +1,16 @@
-<p>task works!</p>
+<div class="jumbotron">
+    <div class="cont border">
+        <h4 class="heading">Task List
+
+        </h4>
+        <div class="input-group col-md-9">
+            <input type="text" class="form-control form-control-lg" placeholder="Create Task CLick On + Button">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary"  type="button" id="button-addon2"><span class="material-icons add" (click)="openDialog(company._id)">add_circle</span></button>
+            </div>
+        </div>
+        <br><br>
+        <div class="row" *ngFor="let company of data">
+            <p>{{ company.name }}</p>
+        </div>
+    </div>

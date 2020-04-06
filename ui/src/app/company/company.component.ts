@@ -76,6 +76,7 @@ export class addCompanyModel {
    
     this.crudService.getOneRecord('company',this.data.key ).subscribe((data:any) => {
       if (data == "No record found") {
+        this.data = []; 
         return   
       }
       this.payload =  data[0];
