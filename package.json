@@ -4,6 +4,7 @@
 		"description": "A college project ",
 		"main": "index.js",
 		"scripts": {
+				"serve": "npm i && cd UI && npm i", 
 				"start": "cd dist && node server.js"
 		},
 		"repository": {

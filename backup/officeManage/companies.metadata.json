@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"officeManage.companies"}],"uuid":"19acffdb4668417b9ac21a7ef21a6253"}
