@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth-service';
+import { AuthService, tokenPayload } from '../auth-service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-component',
   templateUrl: './login-component.component.html',
   styleUrls: ['./login-component.component.css']
 })
 export class LoginComponent implements OnInit {
-  cred ={};
-  constructor(private _AuthService:AuthService) { }
+  cred ={
+   
+  };
+  constructor(private _AuthService:AuthService, private router : Router) { }
 
   ngOnInit() {
   }
@@ -16,7 +19,12 @@ export class LoginComponent implements OnInit {
     
     this._AuthService.login(this.cred)
       .subscribe(arg => {
+        console.log(arg);
         
+        this._AuthService.saveToken(arg);
+        this._AuthService.setLogin();
+        this.router.navigateByUrl('/homepage')
+          
       });
     
   }

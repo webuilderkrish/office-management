@@ -2,7 +2,17 @@ import { Injectable } from '@angular/core';
 //import { authenticationService, tokenPayload } from "../services/authentication.service";
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
+export interface tokenPayload {
+
+    _id: string,
+    first_name: string,
+    last_name: string,
+    email: string,
+    username: string,
+    password: string
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -52,7 +62,7 @@ export class AuthService {
   }
 
 
-  public login(user) {
+  public login(user):Observable<any> {
       const base = this.http.post('/api/cred/login', user)
       return base
   }
@@ -62,5 +72,5 @@ export class AuthService {
       sessionStorage.removeItem('username');
       this.router.navigateByUrl('/login');
 
-  }
+  } 
 }

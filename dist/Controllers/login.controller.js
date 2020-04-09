@@ -27,9 +27,10 @@ class loginController {
                         if (res) {
                             if (yield bcrypt.compareSync(user.Password, res.Password)) {
                                 const payload = {
-                                    Firstname: res.Firstname,
-                                    Lastname: res.Lastname,
+                                    Firstname: res.FirstName,
+                                    Lastname: res.LastName,
                                     email: res.Email,
+                                    isAdmin: res.isAdmin
                                 };
                                 token = yield jwt.sign(payload, process.env.SECRET_KEY, {
                                     expiresIn: 1400

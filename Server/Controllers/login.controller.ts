@@ -19,11 +19,10 @@ export default class loginController{
                     if (res) {
                       if (await bcrypt.compareSync(user.Password, res.Password)) {
                         const payload = {
-                           
-                          Firstname: res.Firstname,
-                          Lastname: res.Lastname,
+                          Firstname: res.FirstName,
+                          Lastname: res.LastName,
                           email: res.Email,
-                         
+                          isAdmin: res.isAdmin
                         }
                       
                         token = await jwt.sign(payload, process.env.SECRET_KEY, {

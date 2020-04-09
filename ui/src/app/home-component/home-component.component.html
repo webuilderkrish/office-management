@@ -1,6 +1,6 @@
 
-<div class="maindiv">
-<mat-toolbar>
+<div class="maindiv" >
+<mat-toolbar *ngIf="show">
     <span>Add Logo</span>
     <div class="user d-flex flex-row-reverse">
         <span class="bell border material-icons p-2">
@@ -9,9 +9,9 @@
         <div class="info">Username</div>
     </div>
   </mat-toolbar>
-<mat-drawer-container class="example-container">
+<mat-drawer-container class="example-container" >
    
-    <mat-drawer mode="side" opened>
+    <mat-drawer mode="side" opened *ngIf="show">
         <a class="links" [routerLink]="['/company']" routerLinkActive="router-link-active" >
             <span class=" material-icons">
                 business

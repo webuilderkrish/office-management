@@ -5,6 +5,7 @@ export default class userController{
 
     static async addUser( user:any){
         try {
+            return new Promise(async (resolve, reject) => {
              await userModel.findOne({
                 Email:user.Email
             })
@@ -19,22 +20,23 @@ export default class userController{
                             });
                         }
                         user.Guid = guid();
+                        user.Username = user.Email;
                         if(err) console.log(err);
                         
                         userModel.create(user)
                         .then(user => {
-                            return user;
+                            resolve (user);
                         }).catch(err => {
-                            return err;
+                            resolve (err);
                         })
                     })
                 }
                 else {
-                    return 'User Already Exist'
+                    resolve ('User Already Exist')
                 }
             });
             
-
+        })
         } catch (error) {
             return error
         }
