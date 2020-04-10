@@ -5,13 +5,18 @@ import { UserComponent } from './user-component/user-component.component';
 import { CompanyComponent } from './company/company.component';
 import { TaskComponent } from './task/task.component';
 import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './home-component/home-component.component';
 
 
 export const routes: Routes = [
   
   {
-    path:'login',
+    path:'',
     component: LoginComponent
+  },
+  {
+    path:'home',
+    component:HomeComponent
   },
   {
     path: 'profile',

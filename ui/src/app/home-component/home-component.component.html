@@ -3,9 +3,10 @@
 <mat-toolbar *ngIf="show">
     <span>Add Logo</span>
     <div class="user d-flex flex-row-reverse">
-        <span class="bell border material-icons p-2">
+       <a href="#"> <span class="bell border material-icons p-2" (click)="logOut()">
             add_alert
         </span>
+    </a>
         <div class="info">Username</div>
     </div>
   </mat-toolbar>
@@ -32,7 +33,7 @@
         </a>
     </mat-drawer>
     <mat-drawer-content>
-        <router-outlet></router-outlet>
+        <router-outlet (someEvent)="check($event)"></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>
 </div>

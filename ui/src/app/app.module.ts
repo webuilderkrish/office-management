@@ -42,6 +42,7 @@ import { TaskComponent } from './task/task.component';
     MatSidenavModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    
     RouterModule.forRoot(routes)
    
   ],

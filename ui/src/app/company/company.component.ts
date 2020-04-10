@@ -66,7 +66,7 @@ export class addCompanyModel {
   }
   ngOnInit() {
     console.log(this.data);
-    
+    location.reload();
     if (this.data.key != undefined) {
       this.fetch();
     }

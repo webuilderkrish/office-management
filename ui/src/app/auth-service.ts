@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 //import { authenticationService, tokenPayload } from "../services/authentication.service";
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+
 
 export interface tokenPayload {
 
@@ -27,7 +28,14 @@ export class AuthService {
       this.token = token;
 
   }
-
+   // Observable string sources
+   private emitChangeSource = new Subject<any>();
+   // Observable string streams
+   changeEmitted = this.emitChangeSource.asObservable();
+   // Service message commands
+   emitChange(change: any) {
+       this.emitChangeSource.next(change);
+   }
   private getToken(): string {
       if (!this.token) {
           this.token = localStorage.getItem('userToken')
@@ -49,12 +57,14 @@ export class AuthService {
   }
 
   public setLogin(){
-      const user = this.getUserDetails()
-      let key = sessionStorage.setItem('username', user.first_name)
+      const user = this.getUserDetails();
+      let key = sessionStorage.setItem('username', user.Firstname)
   }
-  public isLoggedIn(): boolean {
+ public isLoggedIn(): boolean {
       let user = sessionStorage.getItem('username');
-      if (user) {
+      console.log(user);
+      
+      if (user != null || user) {
           return true;
       } else {
           return false
@@ -70,7 +80,7 @@ export class AuthService {
   public logout(): void {
       this.token = '';
       sessionStorage.removeItem('username');
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/');
 
   } 
 }
