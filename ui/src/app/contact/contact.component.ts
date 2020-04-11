@@ -22,8 +22,7 @@ export class ContactComponent implements OnInit {
     this.crudService.getALlRecords(this.url).subscribe((data:any) => {
       if (data == "No record found") {
         this.data = []; 
-        return;
-          
+        return
       }
       this.data =  data;
     })

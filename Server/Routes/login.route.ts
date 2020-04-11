@@ -15,5 +15,14 @@ router.post('/login', async (req, res, next) => {
     }
 
 })
+router.get('/forgetpassword', async (req, res, next) => {
+    try{
+        const guid =  await loginController.main();
+        res.json(guid)
+    }
+    catch(error){
+        res.json(error)
+    }
+})
 
 export default router;

@@ -21,5 +21,14 @@ router.post('/login', (req, res, next) => __awaiter(void 0, void 0, void 0, func
         res.json(error);
     }
 }));
+router.get('/forgetpassword', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const guid = yield login_controller_1.default.main();
+        res.json(guid);
+    }
+    catch (error) {
+        res.json(error);
+    }
+}));
 exports.default = router;
 //# sourceMappingURL=login.route.js.map

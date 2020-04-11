@@ -4,7 +4,7 @@
 		"description": "A college project ",
 		"main": "index.js",
 		"scripts": {
-				"serve": "npm i && cd UI && npm i", 
+				"serve": "npm i && cd UI && npm i",
 				"start": "cd dist && node server.js"
 		},
 		"repository": {
@@ -27,6 +27,7 @@
 				"materialize-css": "^1.0.0",
 				"mongoose": "^5.8.11",
 				"node-fetch": "^2.6.0",
+				"nodemailer": "^6.4.6",
 				"npm": "^6.13.7",
 				"pm2": "^4.2.3",
 				"typescript": "^3.7.5"

@@ -19,7 +19,7 @@ export class CompanyComponent implements OnInit {
   fetch(){
     this.crudService.getALlRecords(this.url).subscribe((data:any) => {
       if (data == "No record found") {
-        return   
+          return;   
       }
       this.data =  data;
     })
