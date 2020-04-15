@@ -13,8 +13,8 @@ export class CrudService {
     const list = this.http.post('/api/' + url + '/', record);
     return list;
   }
-  getALlRecords(url){
-    const list = this.http.get('/api/' + url + '/');
+  getALlRecords(url,page,size, search){
+    const list = this.http.get('/api/' + url + '/?page='+page+'&size='+size+'&search='+search);
     return list;
   }
 

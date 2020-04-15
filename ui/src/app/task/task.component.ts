@@ -17,13 +17,13 @@ export class TaskComponent implements OnInit {
     this.fetch();
   }
   fetch(){
-    this.crudService.getALlRecords(this.url).subscribe((data:any) => {
-      if (data == "No record found") {
-        this.data = []; 
-        return;
-      }
-      this.data =  data;
-    })
+    // //this.crudService.getALlRecords(this.url).subscribe((data:any) => {
+    //   if (data == "No record found") {
+    //     this.data = []; 
+    //     return;
+    //   }
+    //   this.data =  data;
+    // })
   }
 
   deleteCompany(id){

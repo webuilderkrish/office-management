@@ -1,21 +1,17 @@
 import companyModel from '../Models/company.model'
-
+import paginationController from '../Controllers/pagination.controller'
 export default class CompanyController {
 
-    static async getAllCompanies() {
+    static async getAllCompanies(page=1,size=10,search="") {
         return new Promise(async (resolve, reject) => {
-            await companyModel
-                .find(function (err, list) {
-                    // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-                    if (err) {
-                        resolve(err)
-                    }
-                    if (list.length != 0) resolve(list);
-                    else resolve("No record found")
-
-                });
-
-        })
+            const contact:any = await companyModel.find({
+                 $or: [{ companyName: {$regex : ".*"+search+".*"} }, { groupCompany: {$regex : ".*"+search+".*"} }, {creator:{$regex : ".*"+search+".*"}} ]
+             })
+             const response:any = paginationController.pagination(contact, page, size);
+             if (response.totalRecord != 0) resolve(response);
+             else resolve("No record found")
+            
+         })
 
 
     }

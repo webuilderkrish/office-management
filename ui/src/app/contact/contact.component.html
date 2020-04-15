@@ -7,6 +7,31 @@
         </p>
     </div>
     <br><br>
+    <div class="row">
+      <div class="col-md-6">Show
+        <mat-form-field>
+  
+     
+          <mat-select [(ngModel)]="size" (ngModelChange)="fetch()">
+            <mat-option [value]="10" selected>
+              10
+            </mat-option>
+            <mat-option [value]="30">
+              30
+            </mat-option>
+            <mat-option [value]="100">
+              100
+            </mat-option>
+          </mat-select>
+        </mat-form-field> Entries
+      </div>
+      <div class="col-md-6 ">
+        
+      <input [(ngModel)]="search" (ngModelChange)="fetch()" class="form-control float-right col-md-4 mt-3" placeholder="Search">
+     
+      </div>
+    </div>
+    
     <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -16,8 +41,8 @@
             <th scope="col">Action</th>
           </tr>
         </thead>
-        <tbody *ngIf="data.length > 0">
-          <tr *ngFor="let company of data">
+        <tbody>
+          <tr *ngFor="let company of data.list">
             <th > {{ company.name }}</th>
             <th > {{ company.company }}</th>
             <th > {{ company.creator }}</th>
@@ -27,11 +52,20 @@
             </th>
           </tr>
         </tbody>
-        <tbody *ngIf="data.length == 0">
+        <tbody *ngIf="data.totalRecord == 0">
             <tr>
                 <td rowspan="7">No Data Found</td> 
             </tr>
         </tbody>
       </table>
+      <div>
+        <ul class="d-flex flex-row list-group">
+          <li class="float-right p-2 list-group-item " *ngIf="i > 1" (click)= "changePage(1)"><<</li>
+          <li class="float-right p-2 list-group-item" *ngIf="i > 1" (click)= "changePage(page - 1)"><</li>
+          <li [ngClass]="{'active': i == page - 1}" *ngFor="let item of [].constructor(totalPages); let i = index" (click)= "changePage(i+1)" class="float-right p-2 list-group-item ">{{i + 1}}</li>
+          <li class="float-right p-2 list-group-item " *ngIf="i < totalPages" (click)= "changePage(page + 1)">></li>
+          <li class="float-right p-2 list-group-item " *ngIf="i < totalPages" (click)= "changePage(1)">>></li>
+        </ul>
+      </div>
       
 </div>

@@ -10,18 +10,28 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class CompanyComponent implements OnInit {
   public url = 'company';
-  public data:any[] = [];
+  public totalPages = 0;
+  public data:any = {};
+  public size = 10;
+  public page = 1;
+  public search = '';
   constructor( public dialog:MatDialog, private crudService : CrudService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.fetch();
   }
+  changePage(page){
+    this.page = page;
+    this.fetch;
+  }
   fetch(){
-    this.crudService.getALlRecords(this.url).subscribe((data:any) => {
+    this.crudService.getALlRecords(this.url,this.page,this.size,this.search).subscribe((data:any) => {
       if (data == "No record found") {
           return;   
       }
       this.data =  data;
+      this.totalPages = Math.ceil(this.data.totalRecord / this.size);
+      
     })
   }
 
@@ -55,6 +65,7 @@ export class CompanyComponent implements OnInit {
 
 export class addCompanyModel {
   public payload = {};
+
   constructor( 
     private _snackBar: MatSnackBar,
     private crudService : CrudService,
@@ -65,8 +76,7 @@ export class addCompanyModel {
     this.dialogRef.close();
   }
   ngOnInit() {
-    console.log(this.data);
-    location.reload();
+   
     if (this.data.key != undefined) {
       this.fetch();
     }
@@ -77,7 +87,7 @@ export class addCompanyModel {
     this.crudService.getOneRecord('company',this.data.key ).subscribe((data:any) => {
       if (data == "No record found") {
         this.data = []; 
-        return   
+        return 
       }
       this.payload =  data[0];
       

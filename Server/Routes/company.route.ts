@@ -17,8 +17,7 @@ router.post('/', async (req, res, next) => {
 
 
 router.get('/', async (req, res, next) => {
-
-    const allCompanies = await CompanyController.getAllCompanies();
+    const allCompanies = await CompanyController.getAllCompanies(req.query.page, req.query.size,req.query.search);
     res.json(allCompanies);
 })
 

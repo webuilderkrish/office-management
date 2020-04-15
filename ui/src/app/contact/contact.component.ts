@@ -10,7 +10,9 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-
+  public size = 10;
+  public page = 1;
+  public search = '';
   public url = 'contact';
   public data:any[] = [];
   constructor( public dialog:MatDialog, private crudService : CrudService, private _snackBar: MatSnackBar) { }
@@ -18,8 +20,12 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.fetch();
   }
+  changePage(page){
+    this.page = page;
+    this.fetch;
+  }
   fetch(){
-    this.crudService.getALlRecords(this.url).subscribe((data:any) => {
+    this.crudService.getALlRecords(this.url,this.page,this.size,this.search).subscribe((data:any) => {
       if (data == "No record found") {
         this.data = []; 
         return
@@ -68,8 +74,7 @@ export class addContactModel {
     this.dialogRef.close();
   }
   ngOnInit() {
-    console.log(this.data);
-    
+   
     if (this.data.key != undefined) {
       this.fetch();
     }

@@ -15,14 +15,14 @@ router.post('/', async (req, res, next) => {
 
 router.get('/', async (req, res, next) => {
 
-    const allCompanies = await contactController.getAllCompanies(req.query.page, req.query.size,req.query.search);
+    const allCompanies = await contactController.getAllContacts(req.query.page, req.query.size,req.query.search);
     res.json(allCompanies);
 })
 
 router.delete('/:id', async (req, res, next) => {
     const deleteComapny = await contactController.deletecontact(req.params.id);
     res.json(deleteComapny);
-})
+})      
 
 router.get('/:id', async (req, res, next ) => {
     const contact = await contactController.getcontact(req.params.id);
