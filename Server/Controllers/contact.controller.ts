@@ -1,19 +1,16 @@
 import contactModel from '../Models/contact.model'
+import paginationController from '../Controllers/pagination.controller'
+import { response } from 'express';
 
 export default class contactController {
 
-    static async getAllCompanies() {
+    static async getAllCompanies(page,size,search) {
         return new Promise(async (resolve, reject) => {
-            await contactModel
-                .find(function (err, list) {
-                    // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-                    if (err) {
-                        resolve(err)
-                    }
-                    if (list.length != 0) resolve(list);
-                    else resolve("No record found")
-                });
-
+           const contact:any = await contactModel.find({
+                $or: [{ name: {$regex : ".*"+search+".*"} }, { company: {$regex : ".*"+search+".*"} }, {creator:{$regex : ".*"+search+".*"}} ]
+            })
+            const response = paginationController.pagination(contact, page, size);
+            resolve (response);
         })
 
 
