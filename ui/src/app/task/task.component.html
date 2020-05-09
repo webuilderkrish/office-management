@@ -37,23 +37,24 @@
 
             </h4>
             <div class="input-group">
-                <input type="text" class="form-control form-control-lg" placeholder="Create Task Click On + Button">
+                <input type="text" [(ngModel)]="model.name" class="form-control form-control-lg" placeholder="Create Task Click On + Button">
                 <div class="input-group-append">
                     <mat-form-field style="width:1px;visibility:hidden;">
-                        <input matInput [matDatepicker]="picker" >
-                        <mat-datepicker #picker></mat-datepicker>
+                        <input matInput [(ngModel)]="model.date" [owlDateTime]="picker" [owlDateTimeTrigger]="picker" >
+                        <owl-date-time #picker></owl-date-time>
                       </mat-form-field>
                       <button class="btn btn-sm btn-outline-secondary" type="button" id="button-addon2" (click)="picker.open()" ><span class="material-icons">
                         date_range
                         </span></button>
                     <button class="btn btn-sm btn-outline-secondary" type="button" id="button-addon2"><span
-                            class="material-icons add" (click)="openDialog(company._id)">add_circle</span></button>
+                            class="material-icons add" (click)="Save()">add_circle</span></button>
                 </div>
             </div>
             <p class="text-center text-info mt-2">TODAY</p>
         </div>
         <h6 class="text-center text-muted"> {{ date | date }}</h6>
         <br>
+        <div class="listoftask">
         <div class="row bg-info pt-2 m-0 mb-1 col-md-12 rounded" *ngFor="let task of data">
             <div class="cont col-md-6">
             <span class="material-icons starcolor pt-1 pr-1 " [ngClass]="{'star': task.isStarred == true}">
@@ -67,10 +68,26 @@
             
             </div>
         </div>
+       
+    </div>
+    <div class="twobox container pl-3 pr-3 col-md-12 m-0 d-flex fixed-bottom">
+        <div class="col-md-6 bg-secondary text1 p-2 pt-0 text-center d-flex">
+            <i class="material-icons iconche pr-1">
+                schedule
+                </i>
+            <p>  Pending <span>0</span></p>
+        </div> 
+        <div class="col-md-6 bg-secondary text1 p-2 pt-0 text-center d-flex">
+            <i class="material-icons iconche pr-1">
+                check_box
+                </i>
+            <p>  Completed <span>0</span></p>
+        </div> 
 
-        
+    </div>
     </div>
     <div class="list2 col-md-3 border">
-
+            <pre>{{ model | json }}</pre>
+            <p> {{ model.date | date:'shortTime' }}</p>
     </div>
 </div>

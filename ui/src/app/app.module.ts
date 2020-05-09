@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule, MatButtonModule, MatNativeDateModule, MatDatepickerModule, MatDialogModule, MatDialogActions, MatFormFieldModule, MatDividerModule, MatInputModule, MatToolbarModule, MatSidenavModule, MatSnackBarModule, MatSelectModule, MatDatepicker} from '@angular/material';
 import { routes } from './app-routing.module';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login-component/login-component.component';
 import { UserComponent } from './user-component/user-component.component';
@@ -33,11 +35,13 @@ import { TaskComponent } from './task/task.component';
     MatSnackBarModule,
     MatDividerModule,
     FormsModule,
+    NgxMaterialTimepickerModule,
     MatNativeDateModule, 
     MatFormFieldModule,
     MatDatepickerModule,
     MatCardModule,
-
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule,
     MatButtonModule,
     MatDialogModule,
     MatInputModule,

@@ -58,7 +58,29 @@ textarea, select, input, button { outline: none; }
     margin-top: 5px;
     height: 25px;
 }
+.listoftask{
+    height: 50vh;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    position: relative;
+}
 
-.contenttask{
-    overflow: auto;
+.twobox{
+    bottom: 0;
+    margin:auto;
+    position: absolute;
+    
+}
+
+.text1{
+    box-sizing: border-box;
+    border-right: 3px solid #E9ECEF;
+}
+.text2{
+    box-sizing: border-box;
+    border-left: 3px solid #E9ECEF;
+}
+.iconche{
+    margin-bottom: 1px;
+    height: 25px;
 }
