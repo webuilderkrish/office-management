@@ -37,6 +37,7 @@ export class ContactComponent implements OnInit {
 
   deleteCompany(id){
     this.crudService.deleteRecord(this.url,id).subscribe((data:any) => {
+      this.data = [];
       this.fetch();
       this._snackBar.open(data,'delete', {
         duration: 2000,

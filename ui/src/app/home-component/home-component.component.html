@@ -31,6 +31,39 @@
             </span>
             <p>Task</p>
         </a>
+        <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
+            <span class="material-icons">
+                settings
+            </span>
+            <p>Project</p>
+        </a> <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
+            <span class="material-icons">
+                note
+            </span>
+            <p>Order</p>
+        </a> <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
+            <span class="material-icons">
+                people
+            </span>
+            <p>Service</p>
+        </a> <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
+            <span class="material-icons">
+                event_note
+            </span>
+            <p>Calender</p>
+        </a> <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
+            <span class="material-icons">
+                mail
+            </span>
+            <p>Mail</p>
+        </a>
+        
+        <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
+            <span class="material-icons">
+                mail
+            </span>
+            <p>Companion</p>
+        </a>
     </mat-drawer>
     <mat-drawer-content>
         <router-outlet (someEvent)="check($event)"></router-outlet>

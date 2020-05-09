@@ -1,16 +1,17 @@
 <div class="test ml-2 mr-2  d-flex">
     <div class="list col-md-3 p-0">
         <div class="head col-md-12 p-0 m-0  d-flex">
-            <button class=" col-md-4">Today</button>
-            <button class=" col-md-4">Week</button>
-            <button class=" col-md-4">Future</button>
+            <button (click)="fetch2('today')" class=" col-md-4">Today</button>
+            <button (click)="fetch2('week')" class=" col-md-4">Week</button>
+            <button (click)="fetch2('future')" class=" col-md-4">Future</button>
         </div>
         <div>
-            <span class="design"><span class="material-icons p-2">
+            <span class="design">
+                <span class="material-icons p-2">
                     reorder
                 </span>
                 <span class="text pt-2">General</span>
-                <span class="float-right p-2"> 1
+                <span class="float-right p-2"> {{daywisetotal}}
                 </span>
             </span>
         </div>
@@ -18,8 +19,8 @@
             <span class="design"> <span class="material-icons star p-2">
                     star
                 </span>
-                <span class="text pt-2">General</span>
-                <span class="float-right p-2"> 1</span>
+                <span class="text pt-2">Starred</span>
+                <span class="float-right p-2"> {{daywisestarred}}</span>
             </span>
         </div>
         <div>
@@ -27,7 +28,7 @@
                     schedule
                 </span>
                 <span class="text pt-2">Pending</span>
-                <span class="float-right p-2"> 1</span>
+                <span class="float-right p-2"> {{daywisepending}}</span>
             </span>
         </div>
     </div>
@@ -55,9 +56,9 @@
         <h6 class="text-center text-muted"> {{ date | date }}</h6>
         <br>
         <div class="listoftask">
-        <div class="row bg-info pt-2 m-0 mb-1 col-md-12 rounded" *ngFor="let task of data">
+        <div class="row bg-info pt-2 m-0 mb-1 col-md-12 rounded" (click) = "SelectTask(task)" *ngFor="let task of data">
             <div class="cont col-md-6">
-            <span class="material-icons starcolor pt-1 pr-1 " [ngClass]="{'star': task.isStarred == true}">
+            <span class="material-icons starcolor pt-1 pr-1" (click)="clicked(task)" [ngClass]="{'star': task.isStarred == true}">
                 star
             </span>
             <span class="pt-2  text">{{ task.name | titlecase }}</span>
@@ -75,19 +76,92 @@
             <i class="material-icons iconche pr-1">
                 schedule
                 </i>
-            <p>  Pending <span>0</span></p>
+            <p>  Pending <span>{{totalPending}}</span></p>
         </div> 
         <div class="col-md-6 bg-secondary text1 p-2 pt-0 text-center d-flex">
             <i class="material-icons iconche pr-1">
                 check_box
                 </i>
-            <p>  Completed <span>0</span></p>
+            <p>  Completed <span>{{totalCompleted}}</span></p>
         </div> 
 
     </div>
     </div>
-    <div class="list2 col-md-3 border">
-            <pre>{{ model | json }}</pre>
-            <p> {{ model.date | date:'shortTime' }}</p>
+    <div class="list2 col-md-3 border text-muted pt-2">
+
+        <p class="text-primary ">Status : {{ status }}</p>
+        <div *ngIf="show" >
+            <table class="table p-1 rounded-top">
+                <tr class="bg-light ">
+                    <td class="bg-light "> <span class="material-icons starcolor pt-1 pr-1" (click)="clicked(details)" [ngClass]="{'star': details.isStarred == true}">
+                        star
+                    </span>
+                    <span class="pt-2 text">{{ details.name | titlecase }}</span>
+                    <input class="float-right bg-light checkbtn mt-2 mr-5" type="checkbox" (change)="changed(details,$event)" [checked]="details.status == true">
+                </td>
+                </tr>
+                <tr class="bg-white ">
+                    <td class="d-flex">
+                        <span class="material-icons pr-2">
+                            event_note
+                        </span>
+                        <p>{{ details.date | date:'medium'}}</p>
+                     </td>
+                </tr>
+                <tr class="bg-white ">
+                    <td class="d-flex">
+                        <span class="material-icons pr-2">
+                            alarm
+                            </span>
+                            
+                            
+                        <p>Remind Me At {{ details.date | date:'shortTime'}}</p>
+                     </td>
+                </tr>
+                <tr class="bg-white ">
+                    <td class="d-flex">
+                        <span class="material-icons pr-2">
+                            reorder
+                        </span>
+                        <p>Appointment</p>
+                     </td>
+                </tr>
+                <tr class="bg-white ">
+                    <td class="d-flex">
+                        <span class="material-icons pr-2">
+                            group
+                        </span>
+                        <p class="text-primary">Link User</p>
+                     </td>
+                </tr>
+                
+                <tr class="bg-white ">
+                    <td class="d-flex">
+                        <span class="material-icons pr-2">
+                            add
+                        </span>
+                        <p class="text-muted">Add Sub Task</p>
+                     </td>
+                </tr>
+                <tr class="bg-white ">
+                    <td class="d-flex">
+                        <span class="material-icons pr-2">
+                            link
+                        </span>
+                        <p class="text-muted">Link Company</p>
+                     </td>
+                </tr>
+                <tr class="bg-white ">
+                    <td class="d-flex">
+                        <span class="material-icons pr-2">
+                            link
+                        </span>
+                        <p class="text-muted">Link Project/Order/Service</p>
+                     </td>
+                </tr>
+               
+            </table>
+        </div>
+           
     </div>
 </div>
