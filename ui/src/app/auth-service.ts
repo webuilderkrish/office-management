@@ -80,7 +80,7 @@ export class AuthService {
   public logout(): void {
       this.token = '';
       sessionStorage.removeItem('username');
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/login');
 
   } 
 }

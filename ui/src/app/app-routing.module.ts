@@ -11,7 +11,7 @@ import { HomeComponent } from './home-component/home-component.component';
 export const routes: Routes = [
   
   {
-    path:'',
+    path:'login',
     component: LoginComponent
   },
   {
@@ -21,6 +21,10 @@ export const routes: Routes = [
   {
     path: 'profile',
     component: UserComponent
+  },
+  {
+    path:'',
+    component:CompanyComponent
   },
   {
     path:'company',

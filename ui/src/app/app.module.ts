@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
  
 
 import { FormsModule } from '@angular/forms';
-import { MatCardModule, MatButtonModule, MatDialogModule, MatDialogActions, MatFormFieldModule, MatDividerModule, MatInputModule, MatToolbarModule, MatSidenavModule, MatSnackBarModule, MatSelectModule} from '@angular/material';
+import { MatCardModule, MatButtonModule, MatNativeDateModule, MatDatepickerModule, MatDialogModule, MatDialogActions, MatFormFieldModule, MatDividerModule, MatInputModule, MatToolbarModule, MatSidenavModule, MatSnackBarModule, MatSelectModule, MatDatepicker} from '@angular/material';
 import { routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login-component/login-component.component';
@@ -33,8 +33,11 @@ import { TaskComponent } from './task/task.component';
     MatSnackBarModule,
     MatDividerModule,
     FormsModule,
+    MatNativeDateModule, 
     MatFormFieldModule,
+    MatDatepickerModule,
     MatCardModule,
+
     MatButtonModule,
     MatDialogModule,
     MatInputModule,

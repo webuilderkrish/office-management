@@ -60,11 +60,11 @@
       </table>
       <div>
         <ul class="d-flex flex-row list-group">
-          <li class="float-right p-2 list-group-item " *ngIf="i > 1" (click)= "changePage(1)"><<</li>
-          <li class="float-right p-2 list-group-item" *ngIf="i > 1" (click)= "changePage(page - 1)"><</li>
+          <li class="float-right p-2 list-group-item " *ngIf="page > 1" (click)= "changePage(1)"><<</li>
+          <li class="float-right p-2 list-group-item" *ngIf="page > 1" (click)= "changePage(page - 1)"><</li>
           <li [ngClass]="{'active': i == page - 1}" *ngFor="let item of [].constructor(totalPages); let i = index" (click)= "changePage(i+1)" class="float-right p-2 list-group-item ">{{i + 1}}</li>
-          <li class="float-right p-2 list-group-item " *ngIf="i < totalPages" (click)= "changePage(page + 1)">></li>
-          <li class="float-right p-2 list-group-item " *ngIf="i < totalPages" (click)= "changePage(1)">>></li>
+          <li class="float-right p-2 list-group-item " *ngIf="page < totalPages" (click)= "changePage(page + 1)">></li>
+          <li class="float-right p-2 list-group-item " *ngIf="page < totalPages" (click)= "changePage(1)">>></li>
         </ul>
       </div>
       

@@ -1,16 +1,76 @@
-<div class="jumbotron">
-    <div class="cont border">
-        <h4 class="heading">Task List
-
-        </h4>
-        <div class="input-group col-md-9">
-            <input type="text" class="form-control form-control-lg" placeholder="Create Task CLick On + Button">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary"  type="button" id="button-addon2"><span class="material-icons add" (click)="openDialog(company._id)">add_circle</span></button>
-            </div>
+<div class="test ml-2 mr-2  d-flex">
+    <div class="list col-md-3 p-0">
+        <div class="head col-md-12 p-0 m-0  d-flex">
+            <button class=" col-md-4">Today</button>
+            <button class=" col-md-4">Week</button>
+            <button class=" col-md-4">Future</button>
         </div>
-        <br><br>
-        <div class="row" *ngFor="let company of data">
-            <p>{{ company.name }}</p>
+        <div>
+            <span class="design"><span class="material-icons p-2">
+                    reorder
+                </span>
+                <span class="text pt-2">General</span>
+                <span class="float-right p-2"> 1
+                </span>
+            </span>
+        </div>
+        <div>
+            <span class="design"> <span class="material-icons star p-2">
+                    star
+                </span>
+                <span class="text pt-2">General</span>
+                <span class="float-right p-2"> 1</span>
+            </span>
+        </div>
+        <div>
+            <span class="design"><span class="material-icons p-2">
+                    schedule
+                </span>
+                <span class="text pt-2">Pending</span>
+                <span class="float-right p-2"> 1</span>
+            </span>
         </div>
     </div>
+    <div class="cont contenttask border col-md-6">
+        <div class="mat-elevation-z8 mt-2 pt-3 pl-3 pr-3">
+            <h4 class="heading">Task List
+
+            </h4>
+            <div class="input-group">
+                <input type="text" class="form-control form-control-lg" placeholder="Create Task Click On + Button">
+                <div class="input-group-append">
+                    <mat-form-field style="width:1px;visibility:hidden;">
+                        <input matInput [matDatepicker]="picker" >
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      <button class="btn btn-sm btn-outline-secondary" type="button" id="button-addon2" (click)="picker.open()" ><span class="material-icons">
+                        date_range
+                        </span></button>
+                    <button class="btn btn-sm btn-outline-secondary" type="button" id="button-addon2"><span
+                            class="material-icons add" (click)="openDialog(company._id)">add_circle</span></button>
+                </div>
+            </div>
+            <p class="text-center text-info mt-2">TODAY</p>
+        </div>
+        <h6 class="text-center text-muted"> {{ date | date }}</h6>
+        <br>
+        <div class="row bg-info pt-2 m-0 mb-1 col-md-12 rounded" *ngFor="let task of data">
+            <div class="cont col-md-6">
+            <span class="material-icons starcolor pt-1 pr-1 " [ngClass]="{'star': task.isStarred == true}">
+                star
+            </span>
+            <span class="pt-2  text">{{ task.name | titlecase }}</span>
+            </div>
+           <div class="cont col-md-6"> 
+            <input class="float-right checkbtn mt-2" type="checkbox" (change)="changed(task,$event)" [checked]="task.status == true">   
+            <p class="float-right pr-2 pt-2">{{ task.date | date }}</p>
+            
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="list2 col-md-3 border">
+
+    </div>
+</div>

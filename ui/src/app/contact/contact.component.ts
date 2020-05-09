@@ -12,6 +12,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class ContactComponent implements OnInit {
   public size = 10;
   public page = 1;
+  public totalPages = 0;
   public search = '';
   public url = 'contact';
   public data:any[] = [];
@@ -26,11 +27,11 @@ export class ContactComponent implements OnInit {
   }
   fetch(){
     this.crudService.getALlRecords(this.url,this.page,this.size,this.search).subscribe((data:any) => {
-      if (data == "No record found") {
-        this.data = []; 
+      if (data == "No record found") { 
         return
       }
       this.data =  data;
+      this.totalPages = Math.ceil(data.totalRecord / this.size);
     })
   }
 

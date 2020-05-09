@@ -26,10 +26,10 @@ export class HomeComponent implements OnInit {
    check(){
      if(this._AuthService.isLoggedIn()){
         this.show= true;
-        this.router.navigateByUrl('/company')
+       
      }
      else{
-      this.router.navigateByUrl('/') 
+      this.router.navigateByUrl('/login') 
       this.show= false;
      }
   }

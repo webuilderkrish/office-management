@@ -3,6 +3,10 @@ mat-toolbar{
     height: 50px;
     color: rgb(200, 208, 211);
 }
+.menu{
+    height: 8vh;
+    z-index: 100;
+}
 mat-drawer-container{
    
 }
@@ -17,7 +21,7 @@ mat-drawer-container{
     font-size: 20px;
 }
 mat-drawer{
-   
+    
     text-align: center;
     width: 70px;
     background-color: rgb(55, 56, 55);
@@ -36,4 +40,15 @@ span{
 p{
     margin-top: -10px;
     font-size: 15px;
+}
+mat-drawer-content{
+   
+    background-color:#E9ECEF;
+    overflow: auto;
+    height: 92vh;
+   
+}
+maindiv{
+    position: relative;
+    height: 100vh;
 }

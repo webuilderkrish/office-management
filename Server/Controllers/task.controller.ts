@@ -1,7 +1,7 @@
 import taskModel from '../Models/task.model'
 
 export default class taskController {
-
+    
     static async getAllCompanies() {
         return new Promise(async (resolve, reject) => {
             await taskModel
