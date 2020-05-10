@@ -1,24 +1,26 @@
-<div class="container mt-5 col-md-12">
-    <form class="example-form">
-        <mat-form-field class="example-full-width">
+<div class="container mt-5 pb-3 col-md-6 border bg-secondary border rounded">
+    <h3 class="text-center p-3 text-primary">  User</h3>
+    <form class="example-form col-md-12 " (ngSubmit)="Save()">
+        <mat-form-field class="col-md-12">
             <mat-label>First Name</mat-label>
-            <input matInput [(ngModel)]="model.FirstName" placeholder="John" class="col-md-12" required>
+            <input name="fname" matInput [(ngModel)]="model.FirstName" placeholder="John" class="col-md-12" required>
           </mat-form-field>
           <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="col-md-12">
             <mat-label>Last Name</mat-label>
-            <input matInput [(ngModel)]="model.LastName" placeholder="Doe" class="col-md-12" required>
+            <input name="lname" matInput [(ngModel)]="model.LastName" placeholder="Doe" class="col-md-12" required>
           </mat-form-field>
           <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="col-md-12">
             <mat-label>Email</mat-label>
-            <input matInput [(ngModel)]="model.Email" placeholder="example@test.com" class="col-md-12" required>
+            <input name="email" matInput [(ngModel)]="model.Email" placeholder="example@test.com" class="col-md-12" required>
           </mat-form-field>
           <br>
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="col-md-12">
             <mat-label>Password</mat-label>
-            <input matInput [(ngModel)]="model.Password" placeholder="Ex. Pizza" class="col-md-12" required>
+            <input name="password" matInput [(ngModel)]="pass" class="col-md-12" type="password" required>
           </mat-form-field>
-         
+            <button mat-raised-button color="primary" class="col-md-12 rounded" type="submit"> Submit </button>
+          
     </form> 
 </div>

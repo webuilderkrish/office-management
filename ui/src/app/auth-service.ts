@@ -60,6 +60,9 @@ export class AuthService {
       const user = this.getUserDetails();
       let key = sessionStorage.setItem('username', user.Firstname)
   }
+  public setUpdate(email){
+    sessionStorage.setItem('email', email)
+  }
  public isLoggedIn(): boolean {
       let user = sessionStorage.getItem('username');
       console.log(user);

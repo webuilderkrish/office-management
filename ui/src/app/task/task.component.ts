@@ -9,6 +9,7 @@ import { CrudService } from '../crud.service';
 })
 export class TaskComponent implements OnInit {
   public data = [];
+  
   public size = 1000000;
   public page = 1;
   public model = { date: Date.now(), name: '' };
@@ -27,7 +28,7 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() {
     this.fetch();
-
+    this.fetch2('today');
   }
 
   fetch() {

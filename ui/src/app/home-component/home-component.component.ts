@@ -9,16 +9,22 @@ import { AuthService } from '../auth-service';
   styleUrls: ['./home-component.component.css']
 })
 export class HomeComponent implements OnInit {  
+  public show : boolean = false;
+  public listuser : boolean = false;
+
   constructor(private router: Router, private _AuthService:AuthService) { 
     _AuthService.changeEmitted.subscribe(
       text => {
           this.show = true;
       });
   }
-  show : boolean = false;
+  
   ngOnInit() {
     this.check();
+    
   }
+
+
   logOut(){
     this._AuthService.logout();
     this.check();

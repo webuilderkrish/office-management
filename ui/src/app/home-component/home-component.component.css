@@ -7,11 +7,23 @@ mat-toolbar{
     height: 8vh;
     z-index: 100;
 }
-mat-drawer-container{
-   
-}
+
 .user{
     width: 100%;
+}
+
+.userlist{
+    margin-top: 25px;
+    width: 100px;
+    padding: 3px;
+    font-size: 12px;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+}
+li{
+    padding: 3px;
+   
 }
 .info{
     margin-right: 10px;

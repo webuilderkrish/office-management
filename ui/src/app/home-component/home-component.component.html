@@ -1,72 +1,81 @@
+<div class="maindiv">
+    <mat-toolbar *ngIf="show" class="menu">
+        <span>Add Logo</span>
+        <div class="user d-flex flex-row-reverse">
+            <span class="bell material-icons pt-2" (click)="listuser = !listuser">
+                expand_more
+                </span>
+            <span class="bell  material-icons pt-2" >
+                account_circle
+            </span>
 
-<div class="maindiv" >
-<mat-toolbar *ngIf="show" class="menu">
-    <span>Add Logo</span>
-    <div class="user d-flex flex-row-reverse">
-      <span class="bell border material-icons p-2" (click)="logOut()">
-            add_alert
-        </span>
-    
-        <div class="info">Username</div>
-    </div>
-  </mat-toolbar>
-<mat-drawer-container class="example-container" >
-   
-    <mat-drawer mode="side" opened *ngIf="show">
-        <a class="links" [routerLink]="['/company']" routerLinkActive="router-link-active" >
-            <span class=" material-icons">
-                business
-            </span>
-            <p>Company</p>
-        </a>
-        <a class="links" [routerLink]="['/contact']" routerLinkActive="router-link-active" >
-            <span class="material-icons">
-                account_box
-            </span>
-            <p>Contact</p>
-        </a>
-        <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
-            <span class="material-icons">
-                view_headline
-            </span>
-            <p>Task</p>
-        </a>
-        <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
-            <span class="material-icons">
-                settings
-            </span>
-            <p>Project</p>
-        </a> <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
-            <span class="material-icons">
-                note
-            </span>
-            <p>Order</p>
-        </a> <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
-            <span class="material-icons">
-                people
-            </span>
-            <p>Service</p>
-        </a> <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
-            <span class="material-icons">
-                event_note
-            </span>
-            <p>Calender</p>
-        </a> <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
-            <span class="material-icons">
-                mail
-            </span>
-            <p>Mail</p>
-        </a>
-        
-        <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active" >
-            <span class="material-icons">
-                mail
-            </span>
-            <p>Companion</p>
-        </a>
-    </mat-drawer>
-    <mat-drawer-content>
-        <router-outlet (someEvent)="check($event)"></router-outlet>
-    </mat-drawer-content>
-</mat-drawer-container>
+            <div class="info">Username</div>
+           
+                <ul class="list-group userlist" *ngIf="listuser">
+                    <li class="list-group-item"><a [routerLink]="['/user']" (click)="listuser = !listuser">Edit</a></li>
+                    <li class="list-group-item" (click)="logOut()">Log Out</li>
+                </ul>
+             
+
+        </div>
+    </mat-toolbar>
+    <mat-drawer-container class="example-container">
+
+        <mat-drawer mode="side" opened *ngIf="show">
+            <a class="links" [routerLink]="['/company']" routerLinkActive="router-link-active">
+                <span class=" material-icons">
+                    business
+                </span>
+                <p>Company</p>
+            </a>
+            <a class="links" [routerLink]="['/contact']" routerLinkActive="router-link-active">
+                <span class="material-icons">
+                    account_box
+                </span>
+                <p>Contact</p>
+            </a>
+            <a class="links" [routerLink]="['/task']" routerLinkActive="router-link-active">
+                <span class="material-icons">
+                    view_headline
+                </span>
+                <p>Task</p>
+            </a>
+            <a class="links" routerLinkActive="router-link-active">
+                <span class="material-icons">
+                    settings
+                </span>
+                <p>Project</p>
+            </a> <a class="links" routerLinkActive="router-link-active">
+                <span class="material-icons">
+                    note
+                </span>
+                <p>Order</p>
+            </a> <a class="links" routerLinkActive="router-link-active">
+                <span class="material-icons">
+                    people
+                </span>
+                <p>Service</p>
+            </a> <a class="links" routerLinkActive="router-link-active">
+                <span class="material-icons">
+                    event_note
+                </span>
+                <p>Calender</p>
+            </a> <a class="links" routerLinkActive="router-link-active">
+                <span class="material-icons">
+                    mail
+                </span>
+                <p>Mail</p>
+            </a>
+
+            <a class="links" routerLinkActive="router-link-active">
+                <span class="material-icons">
+                    mail
+                </span>
+                <p>Companion</p>
+            </a>
+        </mat-drawer>
+        <mat-drawer-content>
+            <router-outlet (someEvent)="check($event)"></router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
 </div>

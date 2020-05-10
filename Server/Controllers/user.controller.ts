@@ -16,7 +16,7 @@ export default class userController{
     }
     static async getSingleUsers(id) {
         return new Promise(async (resolve, reject) => {
-           const contact:any = await userModel.find({ _id: id });
+           const contact:any = await userModel.find({ Email: id });
            
            if (contact.length != 0) resolve(contact);
            else resolve('No contact found');
