@@ -1,1 +1,24 @@
-
+<div class="container mt-5 col-md-12">
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="model.FirstName" placeholder="John" class="col-md-12" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="model.LastName" placeholder="Doe" class="col-md-12" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="model.Email" placeholder="example@test.com" class="col-md-12" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="model.Password" placeholder="Ex. Pizza" class="col-md-12" required>
+          </mat-form-field>
+         
+    </form> 
+</div>

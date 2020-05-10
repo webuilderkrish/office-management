@@ -58,7 +58,7 @@
             </tr>
         </tbody>
       </table>
-      <div *ngIf="data.length == 0">
+      <div *ngIf="data.length > size">
         <ul class="d-flex flex-row list-group">
           <li class="float-right p-2 list-group-item " *ngIf="page > 1" (click)= "changePage(1)"><<</li>
           <li class="float-right p-2 list-group-item" *ngIf="page > 1" (click)= "changePage(page - 1)"><</li>

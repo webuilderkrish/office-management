@@ -15,6 +15,11 @@ export const routes: Routes = [
     component: LoginComponent
   },
   {
+    path : 'user/:id',
+    component : UserComponent
+  },
+
+  {
     path:'home',
     component:HomeComponent
   },
