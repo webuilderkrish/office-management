@@ -9,7 +9,8 @@ import { CrudService } from '../crud.service';
 })
 export class TaskComponent implements OnInit {
   public data = [];
-  
+  public showlink = false;
+  public companies = [];
   public size = 1000000;
   public page = 1;
   public model = { date: Date.now(), name: '' };
@@ -37,6 +38,10 @@ export class TaskComponent implements OnInit {
         this.data = [];
         return;
       }
+      this.crudService.getALlRecords('company',this.page, this.size, this.search).subscribe((comp: any) => {
+        this.companies = comp;
+      })
+
       this.data = data;
       data.forEach(element => {
         if (element.status) {
@@ -48,12 +53,12 @@ export class TaskComponent implements OnInit {
     })
   }
 
+
   SelectTask(model) {
     if (model.status == true || model.isStarred == true) {
         this.status = 'Updated';
     }
-    else{
-    
+    else{  
       this.status = 'Pending';
     }
     this.details = model;
