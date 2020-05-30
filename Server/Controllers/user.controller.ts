@@ -35,7 +35,7 @@ export default class userController{
             return new Promise(async (resolve, reject) => {
               
                  
-                const user:any = await userModel.find({ Guid: guid });
+                const user:any = await userModel.findOne({ Guid: guid });
                 user.Guid = this.guid();
                 user.DateUpdated = Date.now();
                 await bcrypt.hash(Password, 10, async (err, hash)=>{
@@ -45,7 +45,7 @@ export default class userController{
                             if (error) {
                                 resolve(error);
                             }
-                            resolve(result);
+                            resolve("Password Updated Successfully");
                         });
                       } );   
         } 

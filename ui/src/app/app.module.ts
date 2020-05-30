@@ -17,6 +17,8 @@ import { ContactComponent, addContactModel } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyComponent, addCompanyModel } from './company/company.component';
 import { TaskComponent } from './task/task.component';
+import { ForgetPassowrdComponent } from './login-component/forget-passowrd/forget-passowrd.component';
+import { UpdatePasswordComponent } from './login-component/update-password/update-password.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { TaskComponent } from './task/task.component';
     CompanyComponent,
     TaskComponent,
     addCompanyModel,
-    addContactModel
+    addContactModel,
+    ForgetPassowrdComponent,
+    UpdatePasswordComponent
   ],
   imports: [
     MatSnackBarModule,

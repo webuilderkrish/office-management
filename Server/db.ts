@@ -5,7 +5,7 @@ export default async () => {
         set('useFindAndModify', false);
        
        
-        await connect('mongodb+srv://shubhamdigole:mansi@schoolmanage-p3ck5.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, dbName: "officeManage" });
+       // await connect('mongodb+srv://shubhamdigole:mansi@schoolmanage-p3ck5.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, dbName: "officeManage" });
         await connect('mongodb://localhost:27017/officeManage',{ useNewUrlParser: true })
        
        

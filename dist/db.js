@@ -13,7 +13,7 @@ const mongoose_1 = require("mongoose");
 exports.default = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         mongoose_1.set('useFindAndModify', false);
-        yield mongoose_1.connect('mongodb+srv://shubhamdigole:mansi@schoolmanage-p3ck5.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, dbName: "officeManage" });
+        // await connect('mongodb+srv://shubhamdigole:mansi@schoolmanage-p3ck5.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, dbName: "officeManage" });
         yield mongoose_1.connect('mongodb://localhost:27017/officeManage', { useNewUrlParser: true });
         console.log("Database Connected Successfully");
     }

@@ -13,6 +13,18 @@ router.post('/', async(req, res, next)=>{
     }
 })
 
+router.post('/updatepassword', async(req,res)=> {
+   try
+   {
+    const updatepassword = await userController.updatePassword(req.query.password, req.query.guid);
+    res.json(updatepassword)
+}
+catch(err){
+    res.json(err);
+    
+}
+})
+
 router.get('/', async(req, res, next) => {
     try {
         
