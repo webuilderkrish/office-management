@@ -21,9 +21,9 @@ router.post('/login', (req, res, next) => __awaiter(void 0, void 0, void 0, func
         res.json(error);
     }
 }));
-router.get('/forgetpassword', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/forgetpassword/:email', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const guid = yield login_controller_1.default.main();
+        const guid = yield login_controller_1.default.forgetPassword(req.params.email);
         res.json(guid);
     }
     catch (error) {

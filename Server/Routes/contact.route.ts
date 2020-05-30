@@ -13,7 +13,7 @@ router.post('/', async (req, res, next) => {
     }
 })
 
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res, next) => { 
 
     const allCompanies = await contactController.getAllContacts(req.query.page, req.query.size,req.query.search);
     res.json(allCompanies);

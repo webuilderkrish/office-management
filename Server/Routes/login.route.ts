@@ -15,9 +15,9 @@ router.post('/login', async (req, res, next) => {
     }
 
 })
-router.get('/forgetpassword', async (req, res, next) => {
+router.get('/forgetpassword/:email', async (req, res, next) => {
     try{
-        const guid =  await loginController.main();
+        const guid =  await loginController.forgetPassword(req.params.email);
         res.json(guid)
     }
     catch(error){
