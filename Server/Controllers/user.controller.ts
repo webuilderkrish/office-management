@@ -20,6 +20,17 @@ export default class userController{
 
 
     }
+
+    static async checkMail(Email){
+        return new Promise(async (resolve, reject) => {
+            const contact:any = await userModel.find({ Email: Email });
+            
+            if (contact.length != 0) resolve(true);
+            else resolve(false);
+            
+         })
+    }
+
     static async getSingleUsers(id) {
         return new Promise(async (resolve, reject) => {
            const contact:any = await userModel.find({ Email: id });

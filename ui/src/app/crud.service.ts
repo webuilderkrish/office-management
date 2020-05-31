@@ -26,4 +26,14 @@ export class CrudService {
     const list = this.http.delete('/api/' + url + '/' + id);
     return list;
   }
+
+  checkMail(email){
+    const check = this.http.get('/api/user/checkmail/' + email);
+    return check;
+  }
+
+  forgetPassword(email){
+    const sendMail = this.http.get('/api/cred/forgetpassword/' + email)
+    return sendMail;
+  }
 }

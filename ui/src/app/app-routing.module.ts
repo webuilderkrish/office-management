@@ -6,42 +6,62 @@ import { CompanyComponent } from './company/company.component';
 import { TaskComponent } from './task/task.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home-component/home-component.component';
+import { ForgetPassowrdComponent } from './login-component/forget-passowrd/forget-passowrd.component';
+import { UpdatePasswordComponent } from './login-component/update-password/update-password.component';
+import { AuthGuardService } from './auth-guard.service';
+
 
 
 export const routes: Routes = [
   
+
   {
     path:'login',
     component: LoginComponent
   },
   {
+    path: 'forgotpassword',
+    component: ForgetPassowrdComponent
+  },
+  {
+    path: 'changepassword/:guid',
+    component: UpdatePasswordComponent
+  },
+  {
     path : 'user',
-    component : UserComponent
+    component : UserComponent,
+    canActivate: [AuthGuardService]
   },
 
   {
     path:'home',
-    component:HomeComponent
+    component:HomeComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'profile',
-    component: UserComponent
+    component: UserComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path:'',
-    component:CompanyComponent
+    component:CompanyComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path:'company',
-    component:CompanyComponent
+    component:CompanyComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path:'task',
-    component:TaskComponent
+    component:TaskComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path:'contact',
-    component:ContactComponent
+    component:ContactComponent,
+    canActivate: [AuthGuardService]
   }
 
 ];

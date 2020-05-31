@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
     
   }
 
-
   logOut(){
     this._AuthService.logout();
     this.check();
@@ -32,10 +31,9 @@ export class HomeComponent implements OnInit {
    check(){
      if(this._AuthService.isLoggedIn()){
         this.show= true;
-       
      }
      else{
-      this.router.navigateByUrl('/login') 
+     // this.router.navigateByUrl('/login') 
       this.show= false;
      }
   }

@@ -56,6 +56,15 @@ export class AuthService {
       }
   }
 
+  canActivate(): boolean {
+    if (!this.isLoggedIn()) {
+      this.router.navigate(['login']);
+      return false;
+    }
+    return true;
+  }
+
+  
   public setLogin(){
       const user = this.getUserDetails();
       let key = sessionStorage.setItem('username', user.Firstname)

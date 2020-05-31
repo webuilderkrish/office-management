@@ -98,12 +98,12 @@ asyncAwaitSend();
           }
           return loginController.main(data.replace(/#test#/g,'http://localhost:3000/forgotpassword/' + res.Guid), res.Email);
         });
-        return file;
+        return "Mail Sent Succcessfuly";
 
       })
       .catch(err => {
         return err;
-      }
+        }
       )
 
   }
