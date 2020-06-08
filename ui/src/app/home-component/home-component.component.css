@@ -25,6 +25,9 @@ li{
     padding: 3px;
    
 }
+ul{
+    cursor: pointer;
+}
 .info{
     margin-right: 10px;
     line-height: 40px;

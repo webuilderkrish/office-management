@@ -31,8 +31,6 @@ class loginController {
             const result = send() // Using default parameters
                 .then((res) => {
                 console.log('* [promise-example-1] then: res.result:', res.result);
-                // full response from Nodemailer:
-                // console.log('* [promise-example-1] then: res.full:', res.full);
             })
                 .catch((error) => {
                 console.log('ERROR:', error);
@@ -87,10 +85,12 @@ class loginController {
             })
                 .then((res) => __awaiter(this, void 0, void 0, function* () {
                 let file = yield fs.readFile('Server/Templates/ForgotPassword.html', 'utf8', function (err, data) {
-                    if (err) {
-                        console.log(err);
-                    }
-                    return loginController.main(data.replace(/#test#/g, 'http://localhost:3000/forgotpassword/' + res.Guid), res.Email);
+                    return __awaiter(this, void 0, void 0, function* () {
+                        if (err) {
+                            console.log(err);
+                        }
+                        yield loginController.main(data.replace(/#test#/g, 'http://localhost:3000/forgotpassword/' + res.Guid), res.Email);
+                    });
                 });
                 return "Mail Sent Succcessfuly";
             }))

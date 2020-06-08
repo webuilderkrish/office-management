@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   logOut(){
+    this.listuser = false;
     this._AuthService.logout();
     this.check();
   }

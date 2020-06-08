@@ -10,6 +10,17 @@ export default class userController{
             return v.toString(16);
         });
     }
+ 
+    static async DeleteUSer(id){
+        return new Promise(async (resolve, reject) => {
+            const task = await userModel.remove({ _id: id });
+            if (task.deletedCount == 0) {
+                resolve("User Not Found");
+            }
+            else resolve('User Deleted Successfully');
+        })
+    }
+
     static async getAllUsers() {
         return new Promise(async (resolve, reject) => {
            const contact:any = await userModel.find();
@@ -40,6 +51,13 @@ export default class userController{
            
         })
     }
+    static async GetByGuid(guid){
+        const user:any = await userModel.findOne({ Guid: guid });
+        if (user) {
+                return true;
+        }
+        return false;
+    }
 
     static async updatePassword(Password, guid){
         try {
@@ -48,6 +66,8 @@ export default class userController{
                  
                 const user:any = await userModel.findOne({ Guid: guid });
                 user.Guid = this.guid();
+                console.log(this.guid);
+                
                 user.DateUpdated = Date.now();
                 await bcrypt.hash(Password, 10, async (err, hash)=>{
                     user.Password = hash;

@@ -31,7 +31,16 @@ export class CrudService {
     const check = this.http.get('/api/user/checkmail/' + email);
     return check;
   }
+  checkUser(guid){
+    const check = this.http.get('/api/user/guidcheck/' + guid)
+    return check;
+  }
 
+  updatePassword(pass, guid){
+    const update = this.http.get('/api/user/updatepassword?password=' + pass + '&guid=' + guid);
+    return update;
+  }
+  
   forgetPassword(email){
     const sendMail = this.http.get('/api/cred/forgetpassword/' + email)
     return sendMail;
