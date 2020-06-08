@@ -13,7 +13,7 @@ export class TaskComponent implements OnInit {
   public companies = [];
   public size = 1000000;
   public page = 1;
-  public model = { date: Date.now(), name: '' };
+  public model = { date: null, name: '' };
   public totalCompleted = 0;
   public totalPending = 0;
   public search = '';
@@ -123,8 +123,8 @@ export class TaskComponent implements OnInit {
     }
   }
   Save() {
-    if (this.model.name == '') {
-      this._snackBar.open('Please Fill Proper Date', 'Error', {
+    if (this.model.name == '' || this.model.date == null) {
+      this._snackBar.open('Please Fill Proper Date Or Task', 'Error', {
         duration: 2000,
       });
       return;
@@ -134,7 +134,7 @@ export class TaskComponent implements OnInit {
       this._snackBar.open('Task Added Successfully', 'Save', {
         duration: 2000,
       });
-
+      this.model = { date: null, name: '' };
     })
   }
 

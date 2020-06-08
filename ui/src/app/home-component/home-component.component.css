@@ -3,6 +3,10 @@ mat-toolbar{
     /* height: 50px; */
     color: rgb(200, 208, 211);
 }
+img{
+    margin-top: 17px;
+    height: 10vh;
+}
 .menu{
     height: 8vh;
     z-index: 100;

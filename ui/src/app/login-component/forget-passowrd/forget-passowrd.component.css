@@ -1,9 +1,9 @@
-html,body { height: 100vh; }
+
 
 .back{
 
-   height: 92vh;
-   background-color: white;
+   height: 100vh;
+   background-image: url("../../../assets/login/forgetpass.jpg");
 }
 
 form{
@@ -34,7 +34,7 @@ span{
 }
 .card{
     color: white;
-    background-image: url("../../../assets/login/forget.jpg");
+    background-color: rgba(0, 0, 0, 0.1);
     height: 250px;
     bottom: 0;
     top: 0;

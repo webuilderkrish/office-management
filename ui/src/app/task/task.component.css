@@ -4,12 +4,15 @@ button{
 
 
 }
+.first{
+    height: 92vh;
+}
 .head button{
     padding: 10px;
     background-color: rgb(113, 113, 255);
 }
 .head button:first-child {
-    border: 3px white;
+   
 }
 .test{
 

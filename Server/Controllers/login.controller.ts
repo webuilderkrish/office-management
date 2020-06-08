@@ -90,7 +90,7 @@ asyncAwaitSend();
       Email: Email
     })
       .then(async (res: any) => {
-        let file =  await fs.readFile('Server/Templates/ForgotPassword.html', 'utf8', async function (err, data) {
+        let file =  await fs.readFile('dist/public/assets/Templates/ForgotPassword.html', 'utf8', async function (err, data) {
           if (err) {
             console.log(err);
 

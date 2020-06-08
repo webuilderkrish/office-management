@@ -84,7 +84,7 @@ class loginController {
                 Email: Email
             })
                 .then((res) => __awaiter(this, void 0, void 0, function* () {
-                let file = yield fs.readFile('Server/Templates/ForgotPassword.html', 'utf8', function (err, data) {
+                let file = yield fs.readFile('dist/public/assets/Templates/ForgotPassword.html', 'utf8', function (err, data) {
                     return __awaiter(this, void 0, void 0, function* () {
                         if (err) {
                             console.log(err);

@@ -18,9 +18,8 @@ router.delete('/:id', async (req, res) => {
         const Mail = await userController.DeleteUSer(req.params.id);
         res.json(Mail)
     }
-    catch (err) {
-        res.json(err);
-
+    catch (err) { 
+        res.json(err); 
     }
 })
 router.get('/checkmail/:email', async (req, res) => {

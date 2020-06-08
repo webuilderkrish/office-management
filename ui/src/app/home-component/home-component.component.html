@@ -1,15 +1,15 @@
 <div class="maindiv">
     <mat-toolbar *ngIf="show" class="menu">
-        <span>Add Logo</span>
+        <img src="../../assets/logonobg.png" alt="">
         <div class="user d-flex flex-row-reverse">
             <span class="bell material-icons pt-2" (click)="listuser = !listuser">
                 expand_more
                 </span>
-            <span class="bell  material-icons pt-2" >
+            <span class="bell text-primary   material-icons pt-2" >
                 account_circle
             </span>
 
-            <div class="info">Username</div>
+            <div class="info"> <h6 class="text-primary">Welocome {{ user.Firstname | titlecase}}</h6> </div>
            
                 <ul class="list-group userlist" *ngIf="listuser">
                     <li class="list-group-item"><a [routerLink]="['/user']" (click)="listuser = !listuser">Edit</a></li>
