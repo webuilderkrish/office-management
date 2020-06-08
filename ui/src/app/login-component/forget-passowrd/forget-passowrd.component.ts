@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CrudService } from 'src/app/crud.service';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth-service';
 
 @Component({
   selector: 'app-forget-passowrd',
@@ -12,10 +13,12 @@ export class ForgetPassowrdComponent implements OnInit {
   
   public email;
 
-  constructor(private _crudService: CrudService,private router : Router, private _snackBar: MatSnackBar) { }
+  constructor(private _AuthService:AuthService, private _crudService: CrudService,private router : Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit( ) {
-
+    if(this._AuthService.isLoggedIn()){
+      this.router.navigateByUrl('/company')
+    }
   }
 
   onSubmit(){

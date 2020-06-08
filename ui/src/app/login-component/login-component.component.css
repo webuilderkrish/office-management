@@ -10,22 +10,26 @@
 }
 .jumbotron{
     margin: 0px;
+    padding: 50px;
     font-family: Arial, Helvetica, sans-serif;
     color: gray;
     background: gray;
-    /* height: 90vh; */
+    height: 100vh;
 }
 .background{
-    height: 92vh;
+    height: 100vh;
     background: gray;
 }
 .main{
     background-color: white;
 }
 ul{
-    margin-top: 100px;
+    margin-top: -170px;
+    z-index: 1000;
+    /* margin-top: 100px; */
 }
 li{
+    z-index: 1000;
     margin: 5px;
     list-style: none;
     width: 3px;

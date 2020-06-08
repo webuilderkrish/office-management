@@ -74,7 +74,7 @@
                 <p>Companion</p>
             </a>
         </mat-drawer>
-        <mat-drawer-content>
+        <mat-drawer-content [ngStyle]="{'height':show ? '92vh' : '100vh' }">
             <router-outlet (someEvent)="check($event)"></router-outlet>
         </mat-drawer-content>
     </mat-drawer-container>

@@ -21,11 +21,13 @@ export const routes: Routes = [
   },
   {
     path: 'forgotpassword',
-    component: ForgetPassowrdComponent
+    component: ForgetPassowrdComponent,
+    //canActivate: [AuthGuardService]
   },
   {
     path: 'changepassword/:guid',
-    component: UpdatePasswordComponent
+    component: UpdatePasswordComponent,
+   // canActivate: [AuthGuardService]
   },
   {
     path : 'user',

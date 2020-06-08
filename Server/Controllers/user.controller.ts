@@ -71,14 +71,15 @@ export default class userController{
                 user.DateUpdated = Date.now();
                 await bcrypt.hash(Password, 10, async (err, hash)=>{
                     user.Password = hash;
+                    userModel.findByIdAndUpdate({ _id: user._id }, user, { new: true, upsert: true, setDefaultsOnInsert: true }, function (error, result) {
+                        if (error) {
+                            resolve(error);
+                        }
+                        resolve("Password Updated Successfully");
+                    });
+                  } );
                 })
-                userModel.findByIdAndUpdate({ _id: user._id }, user, { new: true, upsert: true, setDefaultsOnInsert: true }, function (error, result) {
-                            if (error) {
-                                resolve(error);
-                            }
-                            resolve("Password Updated Successfully");
-                        });
-                      } );   
+                  
         } 
         catch (error) {
             return error
@@ -95,7 +96,12 @@ export default class userController{
                         user.Guid = this.guid();
                         user.Username = user.Email;
                         if(err) console.log(err);
-                      if (user._id == undefined) {
+                        const emailuser:any = await userModel.findOne({ Email: user.Email });
+                     
+                        if(emailuser != null && user._id == undefined){
+                            resolve("User Already Exist");
+                        }
+                        if (user._id == undefined) {
                         userModel.create(user)
                         .then(user => {
                             resolve (user);

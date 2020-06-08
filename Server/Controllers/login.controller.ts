@@ -95,7 +95,7 @@ asyncAwaitSend();
             console.log(err);
 
           }
-         await loginController.main(data.replace(/#test#/g,'http://localhost:3000/forgotpassword/' + res.Guid), res.Email);
+         await loginController.main(data.replace(/#test#/g,'http://localhost:3000/changepassword/' + res.Guid), res.Email);
         });
         return "Mail Sent Succcessfuly";
 

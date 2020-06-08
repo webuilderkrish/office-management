@@ -32,7 +32,7 @@ export class UserComponent implements OnInit {
         this.model = {};
         return;
       }
-      console.log(data);
+     // console.log(data);
       
       this.model = data[0];
     })

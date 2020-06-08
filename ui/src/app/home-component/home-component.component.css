@@ -1,6 +1,6 @@
 
 mat-toolbar{
-    height: 50px;
+    /* height: 50px; */
     color: rgb(200, 208, 211);
 }
 .menu{
@@ -60,10 +60,10 @@ mat-drawer-content{
    
     background-color:#E9ECEF;
     overflow: auto;
-    height: 92vh;
+     /* height: 92vh; */
    
 }
-maindiv{
+.maindiv{
     position: relative;
-    height: 100vh;
+    /* height: 100vh; */
 }
