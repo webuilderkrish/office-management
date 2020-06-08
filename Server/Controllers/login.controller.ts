@@ -16,8 +16,10 @@ export default class loginController {
   public static async main(file, Email) {
 
     const send = require('gmail-send')({
-      user: 'brahmasoftsolutions@gmail.com',
-      pass: 'P@ssw0rd@bits',
+      // enter email here
+      user: '********',
+   //   enter pass here
+      pass: '******',
       to:   Email,
       subject: 'Forgot Password Reset Link',
       html:   file 
