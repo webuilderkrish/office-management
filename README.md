@@ -1,8 +1,6 @@
 # office-management
 
 
-Foobar is a Python library for dealing with word pluralization.
-
 ## Installation
 
 Use the package manager to setup this project in project folder.
